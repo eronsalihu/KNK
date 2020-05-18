@@ -1,0 +1,15 @@
+.sign-up{
+-fx-background-color:white;
+
+}
+.sign-up:hover{
+-fx-background-color: -fx-shadow-highlight-color;
+}
+
+.sign-in{
+-fx-background-color:#DCE1E7;
+
+}
+.sign-in:hover{
+-fx-background-color: -fx-shadow-highlight-color;
+}

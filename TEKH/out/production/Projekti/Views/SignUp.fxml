@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="411.0" minWidth="626.0" prefHeight="437.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignUp">
+   <children>
+      <BorderPane minHeight="411.0" minWidth="626.0" prefHeight="437.0" prefWidth="626.0">
+         <left>
+            <Pane prefHeight="437.0" prefWidth="289.0" styleClass="left-signup" stylesheets="@intro.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="437.0" fitWidth="298.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/black-apple-watch-and-wireless-headphones-3563627.jpg" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.52" />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="53.0" layoutY="237.0" text="Let's get you set up " textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="73.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/output-onlinepngtools.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="1.0" />
+                     </effect>
+                  </ImageView>
+                  <Label layoutX="21.0" layoutY="256.0" text="It should only take you one minute " textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font>
+                  </Label>
+                  <VBox fx:id="vMenu" layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="23.0">
+                     <children>
+                        <ImageView  onMouseEntered="#menu" fx:id="menu" fitHeight="26.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/icons8_menu_50px.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </left>
+         <right>
+            <Pane prefHeight="440.0" prefWidth="345.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="65.0" layoutY="75.0" minWidth="155.0" prefHeight="301.0" prefWidth="202.0" spacing="15.0">
+                     <children>
+                        <TextField fx:id="firstname" minHeight="35.0" minWidth="200.0" prefHeight="35.0" prefWidth="200.0" promptText="First Name" style="-fx-background-radius: 0.7em;" />
+                        <TextField fx:id="lastname" minHeight="35.0" minWidth="200.0" prefHeight="35.0" prefWidth="200.0" promptText="Last Name" style="-fx-background-radius: 0.7em;" />
+                        <TextField fx:id="username" minHeight="35.0" minWidth="200.0" prefHeight="35.0" prefWidth="200.0" promptText="Username" style="-fx-background-radius: 0.7em;" />
+                        <TextField fx:id="email" minHeight="35.0" minWidth="200.0" prefHeight="35.0" prefWidth="200.0" promptText="E-mail" style="-fx-background-radius: 0.7em;" />
+                        <PasswordField fx:id="password" minHeight="35.0" minWidth="200.0" prefHeight="35.0" prefWidth="200.0" promptText="Password" style="-fx-background-radius: 0.7em;" />
+                        <Button fx:id="signupBtn" minHeight="35.0" minWidth="200.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="35.0" prefWidth="200.0" style="-fx-background-radius: 1em;" styleClass="sign-in" stylesheets="@intro.css" text="Sing Up">
+                           <font>
+                              <Font name="Monospaced Regular" size="18.0" />
+                           </font>
+                        </Button>
+                        <Label onMouseClicked="#setBackToSingIn" fx:id="backToSingIn" alignment="CENTER" contentDisplay="RIGHT" prefHeight="17.0" prefWidth="208.0" text="Already a user?">
+                           <opaqueInsets>
+                              <Insets left="20.0" />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="Monospaced Regular" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="54.0" fitWidth="62.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icon.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.36" contrast="0.52" hue="-0.02" saturation="-0.21" />
+                     </effect>
+                  </ImageView>
+               </children>
+            </Pane>
+         </right>
+      </BorderPane>
+   </children>
+</AnchorPane>

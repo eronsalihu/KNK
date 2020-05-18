@@ -1,0 +1,10 @@
+.sign-in{
+-fx-background-color:#DCE1E7;
+
+}
+.sign-in:hover{
+-fx-background-color: -fx-shadow-highlight-color;
+}
+.left-pane{
+-fx-background-color:linear-gradient(to bottom, #101010 0%, #ffffff 100%)
+}

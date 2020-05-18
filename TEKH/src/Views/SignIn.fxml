@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignIn">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="268.0" stylesheets="@login.css">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="268.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/photo-of-iphone-6-and-camera-lens-beside-macbook-2120021.jpg" />
+               </image>
+            </ImageView>
+            <VBox  layoutX="70.0" layoutY="100.0" prefHeight="251.0" prefWidth="125.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/output-onlinepngtools.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="1.0" hue="0.14" saturation="-0.02" />
+                     </effect>
+                  </ImageView>
+                  <Label alignment="CENTER" text="Shopping's never" textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="150.0" text="been easier.." textFill="WHITE">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="vMenu" layoutX="14.0" layoutY="14.0" prefHeight="99.0" prefWidth="24.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="31.0" fx:id="menu" onMouseEntered="#menu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/icons8_menu_50px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="268.0" prefHeight="400.0" prefWidth="360.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="86.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icon.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.34" contrast="0.57" hue="-0.17" saturation="-0.12" />
+               </effect>
+            </ImageView>
+            <Label layoutX="43.0" layoutY="80.0" text="Welcome back">
+               <font>
+                  <Font name="Monospaced Regular" size="15.0" />
+               </font>
+            </Label>
+            <VBox layoutX="85.0" layoutY="160.0" prefHeight="50.0" prefWidth="0.0" spacing="15.0">
+               <children>
+                  <TextField fx:id="username" minHeight="33.0" minWidth="190.0" prefHeight="33.0" prefWidth="190.0" promptText="E-mail or Username" style="-fx-background-radius: 0.7em;">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="password" minHeight="33.0" minWidth="190.0" prefHeight="33.0" prefWidth="190.0" promptText="Password" style="-fx-background-radius: 0.7em;">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font>
+                  </PasswordField>
+                  <Button fx:id="sigIn" minHeight="33.0" minWidth="190.0" mnemonicParsing="false" onAction="#SignIn" prefHeight="33.0" prefWidth="190.0" style="-fx-background-radius: 0.7em;" styleClass="sign-in" stylesheets="@login.css" text="Sing In">
+                     <font>
+                        <Font name="Monospaced Regular" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <Label fx:id="forgotPwd" alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="324.0" style="-fx-alignment: center;" text="Forgot Password?">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

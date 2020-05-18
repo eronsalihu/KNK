@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="534.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+   <children>
+      <BorderPane prefHeight="534.0" prefWidth="714.0" styleClass="menu-pane" stylesheets="@login.css">
+         <left>
+            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="menu-pane" stylesheets="@login.css" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="vMenu" layoutX="10.0" layoutY="14.0" prefHeight="510.0" prefWidth="175.0">
+                     <children>
+                        <ImageView fx:id="menu" fitHeight="28.0" fitWidth="33.0" onMouseEntered="#menu" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Icons/icons8_menu_50px.png" />
+                           </image>
+                        </ImageView>
+                        <VBox fx:id="vMenu1" prefHeight="447.0" prefWidth="175.0">
+                           <children>
+                              <Label fx:id="language" prefHeight="38.0" prefWidth="105.0" text="Language">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="alBtn" prefHeight="38.0" prefWidth="140.0" text="Albanian">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/AL.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="enBtn" prefHeight="38.0" prefWidth="140.0" text="English">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="29.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/EN.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="accLabel" prefHeight="38.0" prefWidth="105.0" text="Account">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="email" prefHeight="38.0" prefWidth="140.0" text="E-mail">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/important-mail.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="signOut" prefHeight="38.0" prefWidth="140.0" text="Sign Out">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/exit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="changePassword" prefHeight="38.0" prefWidth="185.0" text="Change Password">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/icons8-lock-104.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                              <Label fx:id="tekhLabel" prefHeight="38.0" prefWidth="105.0" text="Tekh">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="helpBtn" prefHeight="38.0" prefWidth="140.0" text="Help">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="16.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/icons8_help_50px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
