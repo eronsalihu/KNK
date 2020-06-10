@@ -95,7 +95,7 @@ public class SignUp implements Initializable {
                     Scene singUpScene = new Scene(singUp);
 
                     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-
+                    window.setResizable(false);
                     window.setScene(singUpScene);
                     window.show();
 
