@@ -14,7 +14,7 @@ public class Main extends Application {
 
         Image applicationIcon = new Image(getClass().getResourceAsStream("/Icons/icon.png"));
         primaryStage.getIcons().add(applicationIcon);
-
+        primaryStage.setResizable(false);
         primaryStage.setTitle("TEKH");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
