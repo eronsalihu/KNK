@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Stock">
+   <children>
+      <Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;">
+         <children>
+            <TextField fx:id="searchBar" layoutX="17.0" layoutY="62.0" prefHeight="25.0" prefWidth="627.0" promptText="Search Item" style="-fx-background-radius: 0.8em;" styleClass="sign-in" stylesheets="@intro.css">
+               <font>
+                  <Font name="Monospaced Italic" size="12.0" />
+               </font>
+            </TextField>
+            <TableView fx:id="tableView" layoutX="15.0" layoutY="101.0" prefHeight="456.0" prefWidth="631.0">
+               <columns>
+                  <TableColumn fx:id="image" prefWidth="70.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" />
+                  <TableColumn fx:id="name" prefWidth="164.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
+                  <TableColumn fx:id="price" minWidth="0.0" prefWidth="107.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
+                  <TableColumn fx:id="invertory" minWidth="0.0" prefWidth="140.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Invertory" />
+                  <TableColumn fx:id="categoryy" minWidth="0.0" prefWidth="148.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Category" />
+               </columns>
+               <stylesheets>
+                  <URL value="@intro.css" />
+                  <URL value="@login.css" />
+               </stylesheets>
+               <styleClass>
+                  <String fx:value="menu-pane" />
+                  <String fx:value="table-row" />
+                  <String fx:value="column-header" />
+                  <String fx:value="table-row-cell" />
+                  <String fx:value="column-header-background" />
+                  <String fx:value="table-column" />
+                  <String fx:value="filler" />
+               </styleClass>
+            </TableView>
+            <ImageView fitHeight="37.0" fitWidth="46.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Icons/icon.png" />
+               </image>
+               <effect>
+                  <ColorAdjust brightness="-0.4" contrast="0.1" hue="-0.2" saturation="0.45" />
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
