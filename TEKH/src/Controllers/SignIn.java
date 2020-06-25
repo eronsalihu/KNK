@@ -19,6 +19,7 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class SignIn implements Initializable {
@@ -52,26 +53,38 @@ public class SignIn implements Initializable {
             alert.setContentText("Please fill up");
             alert.showAndWait();
         } else {
-            String query = "Select * from users where username = ? OR email = ? AND password = ?";
             try {
 
-                PreparedStatement preparedStatement = DBConn.setConnection().prepareStatement(query);
 
-                preparedStatement.setString(1, username.getText());
-                preparedStatement.setString(2, username.getText());
-                preparedStatement.setString(3, password.getText());
 
-                ResultSet result = preparedStatement.executeQuery();
+                String usernameText= username.getText();
+                String passwordText=password.getText();
+               String Roli= Database.DBConn.check(usernameText,passwordText);
 
-                if (result.next()) {
-                   sigIn.setOnAction(event -> {
-                       try {
-                           HomeHandle(event);
-                       } catch (IOException e) {
-                           e.printStackTrace();
+
+                if (Roli.equalsIgnoreCase("menaxher")) {
+
+                       Alert confirmation=new Alert(Alert.AlertType.CONFIRMATION);
+                       confirmation.setTitle("Kujdes.Zgjidhni Vazhdimesin");
+                       confirmation.setHeaderText("Ne varesi te rolit shfaqet dritjarja perkatese");
+                       confirmation.setContentText("Zgjidhni rolin qe deshironi");
+
+                       ButtonType menaxheri = new ButtonType("Menaxher");
+                       ButtonType shitesi = new ButtonType("Shites");
+                       ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+                       confirmation.getButtonTypes().setAll(menaxheri, shitesi, buttonTypeCancel);
+                       Optional<ButtonType> result = confirmation.showAndWait();
+                       if (result.get()==menaxheri){
+                           sigIn.setOnAction(event -> {
+                               try {
+                                   HomeHandle(event);
+                               } catch (IOException e) {
+                                   e.printStackTrace();
+                               }
+                           });
                        }
-                   });
-                } else {
+
+                } else if (Roli.equalsIgnoreCase("asgje")){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Login result");
                     alert.setHeaderText(null);
@@ -88,6 +101,8 @@ public class SignIn implements Initializable {
                 alert.showAndWait();
                 ex.printStackTrace();
                 System.exit(0);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
         }
@@ -122,8 +137,8 @@ public class SignIn implements Initializable {
     @FXML
     public void HomeHandle(ActionEvent event) throws IOException {
 
-        Parent singUp = FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
-        Scene singUpScene = new Scene(singUp);
+        Parent signUp = FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
+        Scene singUpScene = new Scene(signUp);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setResizable(false);
