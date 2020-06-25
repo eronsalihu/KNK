@@ -10,15 +10,15 @@ import java.util.Date;
 import java.util.Random;
 
 public class DBConn {
-    public static void main(String [] args) {
-        //check("enis.1","Berisha1");
-       // System.out.println("Roli i Enisit eshte: ");
+    public static void main(String [] args) throws Exception {
+       String a= check("Enis.Berisha","ql");
+        System.out.println(a);
 
 
 
 
 
-        shto("Eron","Salihu","shites");
+       // shto("Eron","Salihu","shites");
         //delete(1);
     }
     
@@ -46,37 +46,36 @@ public class DBConn {
 
         return dbConnection;
     }
-    public static void check(String a, String b){
+    public static String check(String a, String b)throws Exception{
             String c=null;
+
             try (Connection connection = setConnection()) {
                 String kerko="Select * from users where username='"+a+"' and password='"+b+"'";
                 Statement s = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
                         ResultSet.CONCUR_READ_ONLY);
                 ResultSet rs=s.executeQuery(kerko);
                 if (rs.next()==false){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Your username or password is wrong");
-                    alert.showAndWait();
+                   c="asgje";
 
                 }
                 else {
-                    while (rs.next()){
-                        c = rs.getString(1);
-
+                    c = rs.getString("roli");
 
 
 
                     }
-                }
+
 
             }
+
+
+
 
         catch( Exception ex){
             ex.printStackTrace();
         }
 
+    return c;
     }
     public static void shto(String a, String b, String c){
         Connection connection=setConnection();
