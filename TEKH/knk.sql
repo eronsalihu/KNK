@@ -60,3 +60,6 @@ produkti varchar(30),
 cmimi double,
 foreign key(id) references faturat(id))ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+create table lastLogged(
+username varchar(50),
+kohakyqjes datetime)ENGINE=InnoDB DEFAULT CHARSET=utf8;
