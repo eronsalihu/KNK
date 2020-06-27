@@ -17,8 +17,18 @@ import java.util.ResourceBundle;
 
 public class Stock implements Initializable {
 
-    @FXML
+   @FXML
     private TextField searchBar;
+    
+    @FXML
+    private Button addCart;
+    
+    @FXML
+    private Button viewShipping;
+    
+    @FXML
+    private Pane rightPane;
+   
 
     @FXML private TableView<Products> tableView;
     @FXML private TableColumn<Products, ImageView> image;
