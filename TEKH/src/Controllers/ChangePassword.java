@@ -25,13 +25,13 @@ import java.util.ResourceBundle;
 public class ChangePassword extends Component implements Initializable {
 
     @FXML
-    private TextField username;
+    private  TextField username;
 
     @FXML
-    private PasswordField confirmPwd;
+    private  PasswordField confirmPwd;
 
     @FXML
-    private PasswordField password;
+    private PasswordField newPwd;
 
     @FXML
     private Button changeBtn;
@@ -41,10 +41,11 @@ public class ChangePassword extends Component implements Initializable {
 
     }
 
+
     @FXML
     private void changePassword(ActionEvent event) {
 
-        if (username.getText().isEmpty() || password.getText().isEmpty() || confirmPwd.getText().isEmpty()) {
+        if ( username.getText().isEmpty()|| newPwd.getText().isEmpty() || confirmPwd.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
@@ -54,29 +55,28 @@ public class ChangePassword extends Component implements Initializable {
 
 
 
-            String query1 = "Update users set password= '" + password.getText() + "' where username='" +username.getText() + "'";
-            try {
-                String pass=password.getText();
+
+                String pass=newPwd.getText();
                 String conPass=confirmPwd.getText();
 
                 if ((pass.equals(conPass))) {
-                    Statement statement = DBConn.setConnection().createStatement();
-                    statement.executeUpdate(query1);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Success");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Password changed successfully!");
-                    alert.showAndWait();
-                    Parent singUp = FXMLLoader.load(getClass().getResource("/Views/ChangePassword.fxml"));
-                    Scene singUpScene = new Scene(singUp);
 
-                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    window.setResizable(false);
-                    window.setScene(singUpScene);
-                    window.close();
+                if(  Database.DBConn.changePw(username.getText(),pass))
+                  try {
+                      Alert confirm=new Alert(Alert.AlertType.INFORMATION);
+                      confirm.setContentText("Passwordi juaj u nderrua me sukses");
+                      confirm.showAndWait();
+                      Parent singUp = FXMLLoader.load(getClass().getResource("/Views/ChangePassword.fxml"));
+                      Scene singUpScene = new Scene(singUp);
 
-
-
+                      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      window.setResizable(false);
+                      window.setScene(singUpScene);
+                      window.close();
+                  }
+                  catch (Exception ex){
+                      ex.printStackTrace();
+                  }
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Error");
@@ -87,14 +87,7 @@ public class ChangePassword extends Component implements Initializable {
                 }
 
 
-            } catch (SQLException | IOException ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Database problem");
-                alert.setHeaderText(null);
-                alert.setContentText(ex.getMessage());
-                alert.showAndWait();
-                System.exit(0);
-            }
+
         }
     }
 }
