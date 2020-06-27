@@ -167,3 +167,15 @@ public class Shopping implements Initializable {
     });
     
     }	    
+	
+	public static boolean isWeekend(LocalDate date) {
+        DayOfWeek dayOfWeek = DayOfWeek.of(date.get(ChronoField.DAY_OF_WEEK));
+        switch (dayOfWeek) {
+        case SATURDAY:
+        case SUNDAY:
+          return true;
+        default:
+          return false;
+        }
+    }
+}
