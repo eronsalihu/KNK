@@ -59,30 +59,43 @@ public class SignIn implements Initializable {
 
                 String usernameText= username.getText();
                 String passwordText=password.getText();
-               String Roli= Database.DBConn.check(usernameText,passwordText);
+                String Roli= Database.DBConn.check(usernameText,passwordText);
 
 
                 if (Roli.equalsIgnoreCase("menaxher")) {
 
-                       Alert confirmation=new Alert(Alert.AlertType.CONFIRMATION);
-                       confirmation.setTitle("Kujdes.Zgjidhni Vazhdimesin");
-                       confirmation.setHeaderText("Ne varesi te rolit shfaqet dritjarja perkatese");
-                       confirmation.setContentText("Zgjidhni rolin qe deshironi");
+                    Alert confirmation=new Alert(Alert.AlertType.CONFIRMATION);
+                    confirmation.setTitle("Kujdes.Zgjidhni Vazhdimesin");
+                    confirmation.setHeaderText("Ne varesi te rolit shfaqet dritjarja perkatese");
+                    confirmation.setContentText("Zgjidhni rolin qe deshironi");
 
-                       ButtonType menaxheri = new ButtonType("Menaxher");
-                       ButtonType shitesi = new ButtonType("Shites");
-                       ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-                       confirmation.getButtonTypes().setAll(menaxheri, shitesi, buttonTypeCancel);
-                       Optional<ButtonType> result = confirmation.showAndWait();
-                       if (result.get()==menaxheri){
-                           sigIn.setOnAction(event -> {
-                               try {
-                                   HomeHandle(event);
-                               } catch (IOException e) {
-                                   e.printStackTrace();
-                               }
-                           });
-                       }
+                    ButtonType menaxheri = new ButtonType("Menaxher");
+                    ButtonType shitesi = new ButtonType("Shites");
+                    ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+                    confirmation.getButtonTypes().setAll(menaxheri, shitesi, buttonTypeCancel);
+                    Optional<ButtonType> result = confirmation.showAndWait();
+                    if (result.get()==menaxheri){
+                        sigIn.setOnAction(event -> {
+                            try {
+                                HomeHandle(event);
+                                Database.DBConn.lastLogedIn(usernameText);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        });
+
+                    }
+                    if (result.get()==shitesi){
+                        sigIn.setOnAction(event -> {
+                            try {
+                                HomeHandle(event);
+                                Database.DBConn.lastLogedIn(usernameText);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        });
+
+                    }
 
                 } else if (Roli.equalsIgnoreCase("asgje")){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -90,6 +103,16 @@ public class SignIn implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Email or password is wrong!");
                     alert.showAndWait();
+
+                }
+                else if (Roli.equalsIgnoreCase("shites")){
+                    sigIn.setOnAction(event -> {
+                        try {
+                            HomeHandle(event);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
 
                 }
 
@@ -134,7 +157,7 @@ public class SignIn implements Initializable {
 
     }
 
-    @FXML
+   @FXML
     public void HomeHandle(ActionEvent event) throws IOException {
 
         Parent signUp = FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
