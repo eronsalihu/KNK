@@ -63,3 +63,11 @@ foreign key(id) references faturat(id))ENGINE=InnoDB DEFAULT CHARSET=utf8;
 create table lastLogged(
 username varchar(50),
 kohakyqjes datetime)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `products` (
+  `name` varchar(40) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `inventory` varchar(30) DEFAULT NULL,
+  `category` varchar(30) DEFAULT NULL,
+  `dateAndTime` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
