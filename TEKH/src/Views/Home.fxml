@@ -1,21 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="534.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+<AnchorPane prefHeight="534.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
       <BorderPane prefHeight="534.0" prefWidth="714.0" styleClass="menu-pane" stylesheets="@login.css">
          <left>
             <Pane prefHeight="200.0" prefWidth="200.0" styleClass="menu-pane" stylesheets="@login.css" BorderPane.alignment="CENTER">
                <children>
-                  <VBox fx:id="vMenu" layoutX="10.0" layoutY="14.0" prefHeight="510.0" prefWidth="175.0">
+                  <VBox layoutY="145.0" minHeight="200.0" prefHeight="200.0" prefWidth="149.0">
+                     <children>
+                        <Button fx:id="stock" layoutX="6.0" layoutY="144.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="101.0" styleClass="sign-in" stylesheets="@intro.css" text="Stock">
+                           <font>
+                              <Font name="Monospaced Regular" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/icons8_shopping_cart_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="orders" layoutX="6.0" layoutY="186.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="117.0" styleClass="sign-in" stylesheets="@intro.css" text="Orders">
+                           <font>
+                              <Font name="Monospaced Regular" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/icons8_shopping_cart_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="payment" layoutX="6.0" layoutY="228.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="117.0" styleClass="sign-in" stylesheets="@intro.css" text="Payment">
+                           <font>
+                              <Font name="Monospaced Regular" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/icons8_check_50px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children></VBox>
+                  
+               </children>
+            </Pane>
+         </left>
+         <top>
+            <HBox minHeight="30.0" prefHeight="45.0" stylesheets="@login.css" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="vMenu" prefHeight="510.0" prefWidth="175.0">
                      <children>
                         <ImageView fx:id="menu" fitHeight="28.0" fitWidth="33.0" onMouseEntered="#menu" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -115,9 +167,42 @@
                         </VBox>
                      </children>
                   </VBox>
+                  <Text layoutX="3.0" layoutY="3.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25px; -fx-: &quot;times new roman&quot;;" styleClass="teksti" text="When Performance Matters" textAlignment="CENTER" wrappingWidth="334.8564453125" x="3.0" y="3.0">
+                     <HBox.margin>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </HBox.margin>
+                     <fill>
+                        <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#ae9090" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </fill>
+                     <stroke>
+                        <RadialGradient centerX="0.9388888888888889" centerY="0.9857142857142858" radius="0.5">
+                           <stops>
+                              <Stop color="BLACK" />
+                              <Stop color="#ae9090" offset="1.0" />
+                           </stops>
+                        </RadialGradient>
+                     </stroke>
+                  </Text>
+                  <ImageView fitHeight="45.0" fitWidth="61.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../Icons/techig.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                  </ImageView>
                </children>
-            </Pane>
-         </left>
+            </HBox>
+         </top>
+         <bottom>
+            <HBox prefHeight="30.0" prefWidth="40.0" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
+
    </children>
 </AnchorPane>
