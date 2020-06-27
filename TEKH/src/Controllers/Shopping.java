@@ -82,3 +82,30 @@ public class Shopping implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	    
+        name.setCellValueFactory(new PropertyValueFactory<Products,String>("Name"));
+        price.setCellValueFactory(new PropertyValueFactory<Products,Double>("Price"));
+        invertory.setCellValueFactory(new PropertyValueFactory<Products,String>("Invertory"));
+        categoryy.setCellValueFactory(new PropertyValueFactory<Products,String>("Category"));
+        dateAndTime.setCellValueFactory(new PropertyValueFactory<Products,String>("dateAndTime"));
+
+        tableView.setItems(productsObservableList);
+
+        FilteredList<Products> filteredData = new FilteredList<>(productsObservableList, p -> true);
+
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getName().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                }
+                return false; // Does not match.
+            });
+        });
