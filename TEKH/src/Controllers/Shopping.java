@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -35,6 +36,9 @@ public class Shopping implements Initializable {
 
     @FXML
     private TextField searchBar;
+    
+    @FXML
+    private Text textfield;
     
     @FXML
     private Button goBack;
@@ -60,7 +64,13 @@ public class Shopping implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     	 
-    	 
+    	if(isWeekend(LocalDate.now()))
+    	{
+    		textfield.setVisible(true);
+    	}
+    	else {
+			textfield.setVisible(false);
+		}
     	Connection connection;
 		try {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
