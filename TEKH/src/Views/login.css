@@ -12,6 +12,8 @@
 .menu-pane{
 -fx-background-color:linear-gradient(to bottom, #C4CDD5 0%, #ffffff 100%)
 }
+.ankori{
+-fx-background-color:linear-gradient(to bottom,#4F6B95 0%,#ffffff 100%)}
 
 .table-view .column-header,
 .table-view .column-header .filler,
@@ -23,6 +25,7 @@
     -fx-text-alignment: center;
 
 }
+
 .table-row-cell:filled:hover {
 
     -fx-size:50;
@@ -39,9 +42,21 @@
     -fx-text-alignment: center;
 
 }
-
+.tekstime{
+-fx-font-family:Times New Roman;
+}
 .table-view .table-column{
     -fx-text-alignment: center;
     -fx-alignment: CENTER 
+
+}
+.apple{
+-fx-border-radius:8px;
+
+-fx-border-color:#4F6B95;
+-fx-margin-left:5px;
+-fx-margin-right:5px;
+}
+.apple:hover{
 
 }
