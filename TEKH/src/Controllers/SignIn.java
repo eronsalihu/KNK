@@ -77,7 +77,7 @@ public class SignIn implements Initializable {
                     if (result.get()==menaxheri){
                         sigIn.setOnAction(event -> {
                             try {
-                                HomeHandle(event);
+                                HomeHandleMenager(event);
                                 Database.DBConn.lastLogedIn(usernameText);
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -161,6 +161,17 @@ public class SignIn implements Initializable {
     public void HomeHandle(ActionEvent event) throws IOException {
 
         Parent signUp = FXMLLoader.load(getClass().getResource("/Views/Home.fxml"));
+        Scene singUpScene = new Scene(signUp);
+
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setResizable(false);
+        window.setScene(singUpScene);
+        window.show();
+    }
+    @FXML
+    public void HomeHandleMenager(ActionEvent event) throws IOException {
+
+        Parent signUp = FXMLLoader.load(getClass().getResource("/Views/homeManager.fxml"));
         Scene singUpScene = new Scene(signUp);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
