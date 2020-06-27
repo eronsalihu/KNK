@@ -6,16 +6,18 @@ import javafx.scene.control.Alert;
 import java.nio.charset.Charset;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
 
 public class DBConn {
     public static void main(String [] args) throws Exception {
-       String a= check("Enis.Berisha","ql");
-        System.out.println(a);
+      // String a= check("Enis.Berisha","ql");
+        //System.out.println(a);
+       // System.out.println(getLast());
 
-
-
+        System.out.println(changePw("qlmngdez","E.berisha1"));
 
 
        // shto("Eron","Salihu","shites");
@@ -159,4 +161,54 @@ public class DBConn {
                     ex.printStackTrace();
                 }
     }
+    public static void lastLogedIn(String name){
+        Connection connection=setConnection();
+        try {
+            Date koha=new Date();
+            String a=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(koha);
+            String shtolog="insert into lastLogged (username,kohakyqjes) values ('"+name+"','"+a+"')";
+            PreparedStatement prp=connection.prepareStatement(shtolog);
+            prp.executeUpdate(shtolog);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public static String getLast(){
+        Connection connection=setConnection();
+        String username=null;
+        try
+        {
+            String query = "SELECT * FROM lastLogged ORDER BY username DESC LIMIT 1;";
+            Statement statement=connection.createStatement();
+            ResultSet resultSet=statement.executeQuery(query);
+            if (resultSet.next()){
+                username=resultSet.getString("username");
+            }
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return username;
+    }
+    public static boolean changePw(String oldPw,String newPw)
+    {
+        boolean ndrrimi=false;
+        Connection connection=setConnection();
+        String useri=getLast();
+        try
+        {
+            String query="Update users set password='"+newPw+"' where username='"+useri+"' and password='"+oldPw+"'";
+            PreparedStatement prp=connection.prepareStatement(query);
+            prp.executeUpdate(query);
+            ndrrimi=true;
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return ndrrimi;
+    }
 }
+
