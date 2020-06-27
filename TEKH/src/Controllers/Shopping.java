@@ -109,3 +109,26 @@ public class Shopping implements Initializable {
                 return false; // Does not match.
             });
         });
+
+	    
+        SortedList<Products> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
+       
+        goBack.setOnMouseClicked(mouseEvent -> {
+        	
+        	Pane stockPane;
+			try {
+				stockPane = FXMLLoader.load(getClass().getResource("/Views/StockPane.fxml"));
+				rightPane.getChildren().add(stockPane); 
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        	
+	         
+        });
+      
+    
