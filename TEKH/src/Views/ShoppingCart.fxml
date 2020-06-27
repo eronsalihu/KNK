@@ -12,3 +12,50 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
+<Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Shopping">
+   <children>
+      <TextField fx:id="searchBar" layoutX="17.0" layoutY="62.0" prefHeight="25.0" prefWidth="627.0" promptText="Search Item" style="-fx-background-radius: 0.8em;" styleClass="sign-in" stylesheets="@intro.css">
+         <font>
+            <Font name="Monospaced Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tableView" layoutX="18.0" layoutY="127.0" prefHeight="430.0" prefWidth="627.0">
+         <columns>
+            <TableColumn fx:id="name" prefWidth="160.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
+            <TableColumn fx:id="price" minWidth="0.0" prefWidth="90.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
+            <TableColumn fx:id="invertory" minWidth="0.0" prefWidth="110.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Invertory" />
+            <TableColumn fx:id="categoryy" minWidth="0.0" prefWidth="110.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Category" />
+            <TableColumn fx:id="dateAndTime" prefWidth="156.0" style="-fx-font-weight: normal; -fx-font-family: monospace;" text="Date&amp;Time" />
+         </columns>
+         <stylesheets>
+            <URL value="@intro.css" />
+            <URL value="@login.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="menu-pane" />
+            <String fx:value="table-row" />
+            <String fx:value="column-header" />
+            <String fx:value="table-row-cell" />
+            <String fx:value="column-header-background" />
+            <String fx:value="table-column" />
+            <String fx:value="filler" />
+         </styleClass>
+      </TableView>
+      <ImageView fitHeight="37.0" fitWidth="46.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Icons/icon.png" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.4" contrast="0.1" hue="-0.2" saturation="0.45" />
+         </effect>
+      </ImageView>
+      <Button fx:id="goBack" layoutX="595.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="deleteRow" layoutX="466.0" layoutY="14.0" mnemonicParsing="false" prefWidth="113.0" text="Delete Row" />
+      <Text fx:id="textfield" fill="#2f9e61" layoutX="257.0" layoutY="111.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekend Sales -20%">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
