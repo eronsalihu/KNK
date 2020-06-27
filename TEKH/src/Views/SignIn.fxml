@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignIn">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignIn">
    <children>
       <Pane prefHeight="400.0" prefWidth="268.0" stylesheets="@login.css">
          <children>
@@ -23,7 +23,7 @@
                   <Image url="@../Icons/photo-of-iphone-6-and-camera-lens-beside-macbook-2120021.jpg" />
                </image>
             </ImageView>
-            <VBox  layoutX="70.0" layoutY="100.0" prefHeight="251.0" prefWidth="125.0">
+            <VBox layoutX="70.0" layoutY="100.0" prefHeight="251.0" prefWidth="125.0">
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -47,7 +47,7 @@
             </VBox>
             <VBox fx:id="vMenu" layoutX="14.0" layoutY="14.0" prefHeight="99.0" prefWidth="24.0">
                <children>
-                  <ImageView fitHeight="26.0" fitWidth="31.0" fx:id="menu" onMouseEntered="#menu" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="menu" fitHeight="26.0" fitWidth="31.0" onMouseEntered="#menu" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Icons/icons8_menu_50px.png" />
                      </image>
@@ -83,7 +83,7 @@
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </PasswordField>
-                  <Button fx:id="sigIn" minHeight="33.0" minWidth="190.0" mnemonicParsing="false" onAction="#SignIn" prefHeight="33.0" prefWidth="190.0" style="-fx-background-radius: 0.7em;" styleClass="sign-in" stylesheets="@login.css" text="Sing In">
+                  <Button fx:id="sigIn" minHeight="33.0" minWidth="190.0" mnemonicParsing="false" onAction="#SignIn" prefHeight="33.0" prefWidth="190.0" style="-fx-background-radius: 0.7em;" styleClass="sign-in" stylesheets="@login.css" text="Sign In">
                      <font>
                         <Font name="Monospaced Regular" size="14.0" />
                      </font>
