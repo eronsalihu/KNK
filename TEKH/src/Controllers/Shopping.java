@@ -150,6 +150,8 @@ public class Shopping implements Initializable {
     		
 	        String sql = ("SELECT * FROM products;");
 	        ResultSet rs = st.executeQuery(sql);
+	        for(int i=0;i<30;i++)
+	        {
 	        if(rs.next())
 	        {
 	        	String str1 = rs.getString("dateAndTime");
@@ -165,8 +167,9 @@ public class Shopping implements Initializable {
 	        }
 	        else {
 				System.out.println();
+				
 			}
-    	
+	        }
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
