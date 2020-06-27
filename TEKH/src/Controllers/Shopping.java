@@ -55,8 +55,30 @@ public class Shopping implements Initializable {
     
   
     
-    ObservableList<Products> productsObservableList=  FXCollections.observableArrayList();
+   ObservableList<Products> productsObservableList=  FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    	 }
+    	 
+    	 
+    	Connection connection;
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
+			  Statement st = connection.createStatement();
+		        String sql = ("SELECT * FROM products;");
+		        ResultSet rs = st.executeQuery(sql);
+		        while(rs.next())
+		        {
+		        	if(isWeekend(LocalDate.now()))
+		        	{
+			        	productsObservableList.add(new Products(rs.getString("name"),rs.getDouble("price")-rs.getDouble("price")*0.2,rs.getString("inventory"),rs.getString("category"),rs.getString("dateAndTime")));
+
+		        	}
+		        	else {
+			        	productsObservableList.add(new Products(rs.getString("name"),rs.getDouble("price"),rs.getString("inventory"),rs.getString("category"),rs.getString("dateAndTime")));
+					}
+		        }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
