@@ -132,3 +132,38 @@ public class Shopping implements Initializable {
         });
       
     
+	deleteRow.setOnMouseClicked(mouseEvent -> {
+    	Products products = tableView.getSelectionModel().getSelectedItem();
+    	try {
+    		Connection connection1=DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
+    		Statement st = connection1.createStatement();
+    		
+	        String sql = ("SELECT * FROM products;");
+	        ResultSet rs = st.executeQuery(sql);
+	        if(rs.next())
+	        {
+	        	String str1 = rs.getString("dateAndTime");
+	        	if(str1.equals(products.getDateAndTime().toString()))
+	        	{
+	        		String query = "delete from products where dateAndTime= ?";
+		        	PreparedStatement preparedStmt = connection1.prepareStatement(query);
+		        	preparedStmt.setString(1,str1);
+
+		    	    preparedStmt.execute();
+	        	}
+	        	
+	        }
+	        else {
+				System.out.println();
+			}
+    	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+     	
+    
+	    
+	      
+    });
+    
+    }	    
