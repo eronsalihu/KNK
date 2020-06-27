@@ -1,23 +1,43 @@
 package Controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
+import javafx.scene.layout.Pane;
 
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import javax.print.event.PrintEvent;
 
 public class Stock implements Initializable {
 
-   @FXML
+    @FXML
     private TextField searchBar;
     
     @FXML
@@ -29,14 +49,18 @@ public class Stock implements Initializable {
     @FXML
     private Pane rightPane;
    
-
+    
+   
+    
     @FXML private TableView<Products> tableView;
     @FXML private TableColumn<Products, ImageView> image;
     @FXML private TableColumn<Products,String> name;
     @FXML private TableColumn<Products, Double> price;
     @FXML private TableColumn<Products,String> invertory;
     @FXML private TableColumn<Products,String> categoryy;
+    
 
+    
     ObservableList<Products> productsObservableList= FXCollections.observableArrayList(
             new Products(new ImageView("/Icons/1.jpg"),"Iphone 11",790.00,"1000 Stock","Phone" ),
             new Products(new ImageView("/Icons/2.jpg"),"Iphone 11 Pro",899.00,"1000 Stock","Phone" ),
@@ -94,7 +118,7 @@ public class Stock implements Initializable {
         sortedData.comparatorProperty().bind(tableView.comparatorProperty());
 
         tableView.setItems(sortedData);
-      
+
         addCart.setOnMouseClicked(mouseEvent -> {
 
            
@@ -136,6 +160,10 @@ public class Stock implements Initializable {
         	
 	         
         });
-    }
+    
 
+    }
+    
+   
+    
 }
