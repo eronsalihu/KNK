@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Views/Intro.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/SignIn.fxml"));
 
         Image applicationIcon = new Image(getClass().getResourceAsStream("/Icons/icon.png"));
         primaryStage.getIcons().add(applicationIcon);
