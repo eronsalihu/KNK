@@ -10,10 +10,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 
 import java.net.URL;
-import java.time.Instant;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -27,20 +28,45 @@ public class Orders implements Initializable {
     @FXML private TableColumn<OrderModel, Double> orderPrice;
     @FXML private TableColumn<OrderModel, Double> orderVAT;
     @FXML private TableColumn<OrderModel, Double> orderTotal;
+    @FXML private TableColumn<OrderModel,Integer> id;
+    @FXML private TableColumn<OrderModel,String> sent;
 
-    private ObservableList<OrderModel> orders = FXCollections.observableArrayList(
-      new  OrderModel("Order#001", new Date(2020, 06, 22),120.00,18,141.6 ),
-            new  OrderModel("Order#002", new Date(2020, 06, 23), 150.00, 18, 177 ),
-            new  OrderModel("Order#003", new Date(2020, 06, 24),220.00,18,259.6 ),
-            new  OrderModel("Order#004", new Date(2020, 06, 28),600.00,18,708 )
-    );
+    private ObservableList<OrderModel> orders = FXCollections.observableArrayList();
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try{
+            Connection connection=Database.DBConn.setConnection();
+            ResultSet resultSet=connection.createStatement().executeQuery("Select * from orders");
+            while (resultSet.next()){
+                int a=resultSet.getInt("id");
+                ResultSet rs=connection.createStatement().executeQuery("select id from faturat");
+                while (rs.next()){
+                    if (a==rs.getInt("id")){
+                        String query="Update orders set aprovuar='Sent' where id='"+a+"'";
+                        PreparedStatement prp=connection.prepareStatement(query);
+                        prp.executeUpdate(query);
+                    }
+                    else{
+                        String query="Update orders set aprovuar='Not Sent' where id='"+a+"'";
+                        PreparedStatement prp=connection.prepareStatement(query);
+                        prp.executeUpdate(query);
+                    }
+                }
+                orders.add(new OrderModel(resultSet.getString("name"),resultSet.getDate("koha"),resultSet.getDouble("price"),resultSet.getDouble("VAT"),resultSet.getDouble("Total"),resultSet.getInt("id"),resultSet.getString("aprovuar")));
+
+
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
         orderName.setCellValueFactory(new PropertyValueFactory<OrderModel,String>("Name"));
         orderDate.setCellValueFactory(new PropertyValueFactory<OrderModel,Date>("Date"));
         orderPrice.setCellValueFactory(new PropertyValueFactory<OrderModel,Double>("Price"));
         orderVAT.setCellValueFactory(new PropertyValueFactory<OrderModel,Double>("VAT"));
-        orderTotal.setCellValueFactory(new PropertyValueFactory<OrderModel,Double>("Total"));
+        orderTotal.setCellValueFactory(new PropertyValueFactory<OrderModel, Double>("Total"));
+        id.setCellValueFactory(new PropertyValueFactory<OrderModel,Integer>("id"));
+        sent.setCellValueFactory(new PropertyValueFactory<OrderModel,String>("sent"));
         orderTable.setItems(orders);
 
 
