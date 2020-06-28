@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Orders">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Orders">
     <children>
         <Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;">
             <children>
@@ -26,11 +26,13 @@
                <content>
                       <TableView fx:id="orderTable" prefHeight="456.0" prefWidth="631.0">
                           <columns>
-                              <TableColumn fx:id="orderName" prefWidth="150.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
-                              <TableColumn fx:id="orderDate" prefWidth="100.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Date" />
-                              <TableColumn fx:id="orderPrice" prefWidth="120.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
-                              <TableColumn fx:id="orderVAT" prefWidth="80.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="VAT" />
-                              <TableColumn fx:id="orderTotal" prefWidth="120.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Total" />
+                              <TableColumn fx:id="orderName" prefWidth="104.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
+                              <TableColumn fx:id="orderDate" prefWidth="90.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Date" />
+                              <TableColumn fx:id="orderPrice" prefWidth="92.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
+                              <TableColumn fx:id="orderVAT" prefWidth="65.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="VAT" />
+                              <TableColumn fx:id="orderTotal" prefWidth="95.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Total" />
+                        <TableColumn fx:id="id" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="ID" />
+                        <TableColumn fx:id="sent" prefWidth="100.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Sent" />
                           </columns>
                           <stylesheets>
                               <URL value="@intro.css" />
