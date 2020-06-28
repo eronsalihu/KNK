@@ -1,9 +1,6 @@
 package Controllers;
 
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,14 +14,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.xml.stream.StreamFilter;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class manager implements Initializable {
+
     @FXML
     private ImageView menu;
 
@@ -49,11 +53,12 @@ public class manager implements Initializable {
     @FXML
     private Pane rightPane;
 
-    @FXML
-    private Pane rightPane1;
 
     @FXML
     private Button home;
+
+    @FXML
+    private Button fshipuntor;
 
     @FXML
     private Button stock;
@@ -118,14 +123,6 @@ public class manager implements Initializable {
             stage.show();
 
         });
-        rightPane.translateXProperty().set(-1 * stackPane.getWidth());
-        var keyValue = new KeyValue(rightPane.translateXProperty(), 0, Interpolator.EASE_IN);
-        var keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
-        var timeline = new Timeline(keyFrame);
-        timeline.setOnFinished(evt -> {
-            stackPane.getChildren().remove(rightPane1);
-        });
-        timeline.play();
 
         stock.setOnMouseClicked(mouseEvent -> {
             try {
@@ -137,6 +134,15 @@ public class manager implements Initializable {
             }
 
 
+        });
+        fshipuntor.setOnMouseClicked(mouseEvent -> {
+            try
+            {
+                Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/deleteWorkerPane.fxml"));
+                rightPane.getChildren().add(stockPane);}
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
         });
 
         orders.setOnMouseClicked(mouseEvent -> {
@@ -163,7 +169,7 @@ public class manager implements Initializable {
 
         payment.setOnMouseClicked(mouseEvent -> {
             try {
-                Pane stockPane= FXMLLoader.load(getClass().getResource("/Views/BillPane.fxml"));
+                Pane stockPane= FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
                 rightPane.getChildren().add(stockPane);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -173,6 +179,10 @@ public class manager implements Initializable {
 
         });
 
+        helpBtn.setOnMouseClicked(mouseEvent -> {
+            Help help=new Help();
+            help.help();
+        });
 
     }
 
