@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -24,18 +26,21 @@ public class Faturat implements Initializable {
     @FXML private TableColumn<FaturatHelper, Date> time;
     @FXML private TableColumn<FaturatHelper, Double> totalCost;
 
-        ObservableList<FaturatHelper> productsObservableList= FXCollections.observableArrayList(
-            new FaturatHelper(1,"Shitesi1", new Date(2020, 6, 22, 10,30,11),790.0),
-            new FaturatHelper(2,"Shitesi1", new Date(2020, 6, 22, 12,34,12),899.0),
-            new FaturatHelper(3,"Shitesi1", new Date(2020, 6, 22, 12,50,22),249.0),
-            new FaturatHelper(4,"Shitesi2", new Date(2020, 6, 23, 14,31,34),459.0),
-            new FaturatHelper(5,"Shitesi2", new Date(2020, 6, 23, 16,13,55),629.9),
-            new FaturatHelper(6,"Shitesi2", new Date(2020, 6, 23, 17,22,43),339.0),
-            new FaturatHelper(7,"Shitesi2", new Date(2020, 6, 23, 20,33,33),749.0)
-    );
+        ObservableList<FaturatHelper> productsObservableList= FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            Connection connection=Database.DBConn.setConnection();
+            ResultSet resultSet=connection.createStatement().executeQuery("Select * from faturat");
+            while (resultSet.next()){
+                productsObservableList.add(new FaturatHelper(resultSet.getInt("id"),resultSet.getString("personi"),resultSet.getString("koha"),resultSet.getDouble("shuma")));
+
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
 
         id.setCellValueFactory(new PropertyValueFactory<FaturatHelper, Integer>("Id"));
         person.setCellValueFactory(new PropertyValueFactory<FaturatHelper, String>("Person"));
