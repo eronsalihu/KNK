@@ -13,3 +13,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Orders">
+    <children>
+        <Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;">
+            <children>
+                <TextField fx:id="searchBar" layoutX="17.0" layoutY="62.0" prefHeight="25.0" prefWidth="627.0" promptText="Search order" style="-fx-background-radius: 0.8em;" styleClass="sign-in" stylesheets="@intro.css">
+                    <font>
+                        <Font name="Monospaced Italic" size="12.0" />
+                    </font>
+                </TextField>
+            <ScrollPane hbarPolicy="ALWAYS" layoutX="15.0" layoutY="101.0" vbarPolicy="ALWAYS">
+               <content>
