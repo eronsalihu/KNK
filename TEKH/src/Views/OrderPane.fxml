@@ -49,3 +49,16 @@
                           </styleClass>
                       </TableView>
                </content>
+ </ScrollPane>
+                <ImageView fitHeight="37.0" fitWidth="46.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/icon.png" />
+                    </image>
+                    <effect>
+                        <ColorAdjust brightness="-0.4" contrast="0.1" hue="-0.2" saturation="0.45" />
+                    </effect>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
