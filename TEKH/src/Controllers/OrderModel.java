@@ -3,16 +3,31 @@ package Controllers;
 import java.util.Date;
 
 public class OrderModel {
-    private String Name;
+    private String Name,sent;
     private Date Date;
     private double Price, VAT, Total;
+    private int id;
 
-    public OrderModel(String Name, Date Date, double Price, double VAT, double Total){
+    public OrderModel(String Name, Date Date, double Price, double VAT, double Total,int id,String sent){
         this.Name = Name;
         this.Date = Date;
         this.Price = Price;
         this.VAT = VAT;
         this.Total = Total;
+        this.id=id;
+        this.sent=sent;
+    }
+    public String getSent(){
+        return this.sent;
+    }
+    public void setSent(String sent){
+        this.sent=sent;
+    }
+    public Integer getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id=id;
     }
 
     public String getName() {
