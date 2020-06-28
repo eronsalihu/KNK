@@ -1,5 +1,4 @@
-
- version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
 <?import java.net.URL?>
@@ -14,7 +13,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Orders">
     <children>
         <Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;">
@@ -26,7 +24,7 @@
                 </TextField>
             <ScrollPane hbarPolicy="ALWAYS" layoutX="15.0" layoutY="101.0" vbarPolicy="ALWAYS">
                <content>
-   <TableView fx:id="orderTable" prefHeight="456.0" prefWidth="631.0">
+                      <TableView fx:id="orderTable" prefHeight="456.0" prefWidth="631.0">
                           <columns>
                               <TableColumn fx:id="orderName" prefWidth="150.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
                               <TableColumn fx:id="orderDate" prefWidth="100.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Date" />
@@ -49,7 +47,7 @@
                           </styleClass>
                       </TableView>
                </content>
- </ScrollPane>
+            </ScrollPane>
                 <ImageView fitHeight="37.0" fitWidth="46.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../Icons/icon.png" />
