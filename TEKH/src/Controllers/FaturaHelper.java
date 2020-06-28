@@ -25,6 +25,43 @@ public class FaturatHelper {
         this.product=product;
         this.cost=cost;
     }
+    public Integer getId() {
+        return id;
+    }
+    public String getPerson() {
+        return person;
+    }
+    public Date getTime() {
+        return time;
+    }
+    public double getTotalCost() {
+        return totalCost;
+    }
+    public String getProduct() { return product; }
+    public double getCost() { return cost; }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setPerson(String person) {
+        this.person = person;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public void setPrice(double cost) {
+        this.cost = cost;
+    }
 
 }
