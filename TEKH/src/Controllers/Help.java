@@ -1,5 +1,6 @@
 package Controllers;
 
+import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -7,7 +8,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-public class Help {
+public class Help  {
     public void help() {
         Stage primaryStage=new Stage();
         WebView webView = new WebView();
@@ -21,5 +22,6 @@ public class Help {
         primaryStage.show();
 
     }
+
 
 }
