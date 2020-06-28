@@ -53,8 +53,6 @@ public class Home implements Initializable {
     @FXML
     private Pane rightPane;
 
-    @FXML
-    private Pane rightPane1;
 
     @FXML
     private Button home;
@@ -122,14 +120,6 @@ public class Home implements Initializable {
             stage.show();
 
         });
-        rightPane.translateXProperty().set(-1 * stackPane.getWidth());
-        var keyValue = new KeyValue(rightPane.translateXProperty(), 0, Interpolator.EASE_IN);
-        var keyFrame = new KeyFrame(Duration.millis(1000), keyValue);
-        var timeline = new Timeline(keyFrame);
-        timeline.setOnFinished(evt -> {
-            stackPane.getChildren().remove(rightPane1);
-        });
-        timeline.play();
 
         stock.setOnMouseClicked(mouseEvent -> {
             try {
@@ -177,6 +167,10 @@ public class Home implements Initializable {
 
         });
 
+        helpBtn.setOnMouseClicked(mouseEvent -> {
+            Help help=new Help();
+            help.help();
+        });
 
     }
 
