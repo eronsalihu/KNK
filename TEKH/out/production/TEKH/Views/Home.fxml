@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,20 +12,86 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="534.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+<AnchorPane prefHeight="610.0" prefWidth="860.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
-      <BorderPane prefHeight="534.0" prefWidth="714.0" styleClass="menu-pane" stylesheets="@login.css">
-         <left>
-            <Pane prefHeight="200.0" prefWidth="200.0" styleClass="menu-pane" stylesheets="@login.css" BorderPane.alignment="CENTER">
+      <BorderPane prefHeight="610.0" prefWidth="860.0">
+         <center>
+            <Pane fx:id="rightPane" prefHeight="610.0" prefWidth="668.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <VBox fx:id="vMenu" layoutX="10.0" layoutY="14.0" prefHeight="510.0" prefWidth="175.0">
+                  <ImageView fitHeight="223.0" fitWidth="208.0" layoutX="230.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/output-onlinepngtools.png" />
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="-0.4" contrast="0.1" hue="-0.2" saturation="0.45" />
+                     </effect>
+                  </ImageView>
+               </children>
+            </Pane>
+         </center>
+         <left>
+         <Pane prefHeight="610.0" prefWidth="192.0" styleClass="menu-pane" stylesheets="@login.css" BorderPane.alignment="CENTER">
+         <children>
+                  <VBox fx:id="vMenu" layoutX="14.0" layoutY="14.0" prefHeight="510.0" prefWidth="175.0" spacing="3.0">
                      <children>
                         <ImageView fx:id="menu" fitHeight="28.0" fitWidth="33.0" onMouseEntered="#menu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Icons/icons8_menu_50px.png" />
                            </image>
                         </ImageView>
-                        <VBox fx:id="vMenu1" prefHeight="447.0" prefWidth="175.0">
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0">
+                           <children>
+                              <Button fx:id="home" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="Home">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/homeee.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="stock" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="Stock">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/icons8_garage_door_100px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="orders" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="Orders">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/icons8_shopping_cart_50px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button fx:id="payment" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="Payment">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../Icons/icons8_check_50px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="vMenu1" prefHeight="577.0" prefWidth="175.0">
                            <children>
                               <Label fx:id="language" prefHeight="38.0" prefWidth="105.0" text="Language">
                                  <font>
@@ -89,7 +158,7 @@
                                  <graphic>
                                     <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../Icons/icons8-lock-104.png" />
+                                          <Image url="@../Icons/icons8-lock-50.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -106,7 +175,7 @@
                                  <graphic>
                                     <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../Icons/icons8_help_50px.png" />
+                                          <Image url="@../Icons/icons8_help_50px_1.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -115,9 +184,14 @@
                         </VBox>
                      </children>
                   </VBox>
-               </children>
-            </Pane>
+         </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+         </Pane>
          </left>
+
       </BorderPane>
+
    </children>
 </AnchorPane>
