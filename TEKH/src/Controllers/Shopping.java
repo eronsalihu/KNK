@@ -163,6 +163,15 @@ public class Shopping implements Initializable {
 		        	preparedStmt.setString(1,str1);
 
 		    	    preparedStmt.execute();
+				
+			    Pane stockPane;
+					try {
+						stockPane = FXMLLoader.load(getClass().getResource("/Views/ShoppingCart.fxml"));
+						rightPane.getChildren().add(stockPane); 
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}				
 	        	}
 	        	
 	        }
