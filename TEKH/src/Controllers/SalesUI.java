@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -47,6 +48,9 @@ public class SalesUI implements Initializable {
 
     @FXML
     private VBox vMenu1;
+
+    @FXML
+    private Label helpBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -95,6 +99,11 @@ public class SalesUI implements Initializable {
             }
 
 
+        });
+
+        helpBtn.setOnMouseClicked(mouseEvent -> {
+            Help help=new Help();
+            help.help();
         });
 
     }
