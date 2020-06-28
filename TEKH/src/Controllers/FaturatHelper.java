@@ -7,13 +7,13 @@ public class FaturatHelper {
         private Integer id;
         private String person;
         private double totalCost;
-        private Date time;
+        private String time;
         private String product;
         private double cost;
 
 
 
-    FaturatHelper(Integer id, String person, Date time, double totalCost){
+    FaturatHelper(Integer id, String person, String time, double totalCost){
         this.id=id;
         this.person=person;
         this.time=time;
@@ -31,7 +31,7 @@ public class FaturatHelper {
     public String getPerson() {
         return person;
     }
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
     public double getTotalCost() {
@@ -48,7 +48,7 @@ public class FaturatHelper {
         this.person = person;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
