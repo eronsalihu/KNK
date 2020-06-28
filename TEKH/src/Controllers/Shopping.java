@@ -72,8 +72,9 @@ public class Shopping implements Initializable {
 			textfield.setVisible(false);
 		}
     	Connection connection;
+    	connection=Database.DBConn.setConnection();
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
+
 			  Statement st = connection.createStatement();
 		        String sql = ("SELECT * FROM products;");
 		        ResultSet rs = st.executeQuery(sql);
