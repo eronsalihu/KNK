@@ -26,3 +26,26 @@
                 </TextField>
             <ScrollPane hbarPolicy="ALWAYS" layoutX="15.0" layoutY="101.0" vbarPolicy="ALWAYS">
                <content>
+   <TableView fx:id="orderTable" prefHeight="456.0" prefWidth="631.0">
+                          <columns>
+                              <TableColumn fx:id="orderName" prefWidth="150.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
+                              <TableColumn fx:id="orderDate" prefWidth="100.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Date" />
+                              <TableColumn fx:id="orderPrice" prefWidth="120.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
+                              <TableColumn fx:id="orderVAT" prefWidth="80.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="VAT" />
+                              <TableColumn fx:id="orderTotal" prefWidth="120.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Total" />
+                          </columns>
+                          <stylesheets>
+                              <URL value="@intro.css" />
+                              <URL value="@login.css" />
+                          </stylesheets>
+                          <styleClass>
+                              <String fx:value="menu-pane" />
+                              <String fx:value="table-row" />
+                              <String fx:value="column-header" />
+                              <String fx:value="table-row-cell" />
+                              <String fx:value="column-header-background" />
+                              <String fx:value="table-column" />
+                              <String fx:value="filler" />
+                          </styleClass>
+                      </TableView>
+               </content>
