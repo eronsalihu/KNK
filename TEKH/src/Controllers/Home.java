@@ -157,7 +157,7 @@ public class Home implements Initializable {
 
         payment.setOnMouseClicked(mouseEvent -> {
             try {
-                Pane stockPane= FXMLLoader.load(getClass().getResource("/Views/BillPane.fxml"));
+                Pane stockPane= FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
                 rightPane.getChildren().add(stockPane);
             } catch (IOException e) {
                 e.printStackTrace();
