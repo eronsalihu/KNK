@@ -130,6 +130,20 @@ public class DBConn {
             ex.printStackTrace();
         }
     }
+    public static void signout(){
+        Connection connection=setConnection();
+        try{
+            String iFundit=getLast();
+            Date koha=new Date();
+            String a=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(koha);
+            String shtolog="insert into signedOut (username,kohadaljes) values ('"+iFundit+"','"+a+"')";
+            PreparedStatement prp=connection.prepareStatement(shtolog);
+            prp.executeUpdate(shtolog);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
     public static void delete(int a){
         Connection connection=setConnection();
                 try{
