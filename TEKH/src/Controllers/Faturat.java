@@ -1,4 +1,3 @@
-
 package Controllers;
 
 import javafx.collections.FXCollections;
@@ -45,6 +44,32 @@ public class Faturat implements Initializable {
 
         tableView.setItems(productsObservableList);
 
+        FilteredList<FaturatHelper> filteredData = new FilteredList<>(productsObservableList, p -> true);
+
+        searchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                // If filter text is empty, display all persons.
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                // Compare first name and last name of every person with filter text.
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (person.getPerson().toLowerCase().contains(lowerCaseFilter)) {
+                    return true; // Filter matches first name.
+                }
+                return false; // Does not match.
+            });
+        });
+
+
+
+        SortedList<FaturatHelper> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+
+        tableView.setItems(sortedData);
 
     }
 
