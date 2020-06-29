@@ -88,6 +88,9 @@ public class manager implements Initializable {
     @FXML
     private VBox vMenu1;
 
+    @FXML
+    private Button shtoPuntor;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -135,6 +138,15 @@ public class manager implements Initializable {
 
 
         });
+        shtoPuntor.setOnMouseClicked(mouseEvent -> {
+            try{
+                Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/ViewWorkersPane.fxml"));
+                rightPane.getChildren().add(stockPane);
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+        });
         fshipuntor.setOnMouseClicked(mouseEvent -> {
             try
             {
@@ -144,6 +156,7 @@ public class manager implements Initializable {
                 ex.printStackTrace();
             }
         });
+
 
         orders.setOnMouseClicked(mouseEvent -> {
             try {
