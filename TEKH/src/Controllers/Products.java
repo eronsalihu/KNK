@@ -7,20 +7,38 @@ import java.time.format.DateTimeFormatter;
 import javafx.scene.image.ImageView;
 
 public class Products {
-    private String name,category,invertory;
+    private String name;
+    private String category;
+    private int invertory;
     private double price;
     private ImageView image;
     private String dateAndTime;
+    private String inventoryn;
+    private int id;
     
-    Products(String name,double price,String invertory,String category){
+    Products(String name,double price,int invertory,String category){
         this.name=name;
         this.price=price;
         this.invertory=invertory;
         this.category=category;
 
     }
-    
-    Products(String name,double price,String invertory,String category,String dateAndTime){
+    Products(int id,String name,double price,String category){
+        this.id=id;
+        this.name=name;
+        this.price=price;
+        this.category=category;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    Products(String name, double price, int invertory, String category, String dateAndTime){
         this.name=name;
         this.price=price;
         this.invertory=invertory;
@@ -29,13 +47,34 @@ public class Products {
        	
     }
 
-    Products(ImageView image,String name,double price,String invertory,String category){
+    Products(ImageView image,String name,double price,int invertory,String category){
         this.image=image;
         this.name=name;
         this.price=price;
         this.invertory=invertory;
         this.category=category;
 
+    }
+    Products(ImageView image,String name,double price,String invertoryn,String category){
+        this.image=image;
+        this.name=name;
+        this.price=price;
+        this.inventoryn=invertoryn;
+        this.category=category;
+
+    }
+
+    public Products(String name, double v, String inventory, String category, String dateAndTime) {
+
+    }
+
+
+    public String getInventoryn() {
+        return inventoryn;
+    }
+
+    public void setInventoryn(String inventoryn) {
+        this.inventoryn = inventoryn;
     }
 
     public String getName() {
@@ -58,7 +97,7 @@ public class Products {
         return category;
     }
 
-    public String getInvertory() {
+    public int getInvertory() {
         return invertory;
     }
     
@@ -79,7 +118,7 @@ public class Products {
         this.category = category;
     }
 
-    public void setInvertory(String invertory) {
+    public void setInvertory(int invertory) {
         this.invertory = invertory;
     }
     public void setDateAndTime(String dateAndTime)
