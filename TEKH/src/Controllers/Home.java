@@ -134,16 +134,17 @@ public class Home implements Initializable {
         });
 
         orders.setOnMouseClicked(mouseEvent -> {
-            try {
-                Pane stockPane= FXMLLoader.load(getClass().getResource("/Views/OrderPane.fxml"));
-                rightPane.getChildren().add(stockPane);
-            } catch (IOException e) {
-                e.printStackTrace();
-
-            }
-
-
+        	Pane stockPane;
+			try {
+				stockPane = FXMLLoader.load(getClass().getResource("/Views/ShoppingCart.fxml"));
+				rightPane.getChildren().add(stockPane); 
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
         });
+        
         home.setOnMouseClicked(mouseEvent -> {
             try
             {
