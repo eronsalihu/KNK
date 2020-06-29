@@ -86,10 +86,17 @@ public class Products {
     {
     	this.dateAndTime=dateAndTime;
     }
-    public String thedate() {
+   public String thedate() {
     	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     	   LocalDateTime now = LocalDateTime.now();
-    	   
+    	  
     	return dtf.format(now);
+    }
+    
+    public String warrantyDate() {
+    	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+    	   LocalDateTime now = LocalDateTime.now();
+    	  LocalDateTime later = now.plusMonths(6);
+    	return dtf.format(later);
     }
 }
