@@ -10,13 +10,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TablePosition;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.TableView.TableViewSelectionModel;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -25,10 +20,7 @@ import javafx.scene.layout.Pane;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -49,7 +41,7 @@ public class Stock implements Initializable {
     @FXML
     private Pane rightPane;
    
-    
+
    
     
     @FXML private TableView<Products> tableView;
@@ -61,28 +53,22 @@ public class Stock implements Initializable {
     
 
     
-    ObservableList<Products> productsObservableList= FXCollections.observableArrayList(
-            new Products(new ImageView("/Icons/1.jpg"),"Iphone 11",790.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/2.jpg"),"Iphone 11 Pro",899.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/6.jpg"),"Samsung Galaxy Watch",249.00,"1000 Stock","Watch" ),
-            new Products(new ImageView("/Icons/7.jpg"),"Iphone X",459.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/8.jpg"),"Samsung Galaxy Note 9 ",629.99,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/4.jpg"),"Apple Watch Series 4",339.00,"1000 Stock","Watch" ),
-            new Products(new ImageView("/Icons/9.jpg"),"OnePlus & Pro",749.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/10.jpg"),"Oppo Reno 3 Pro",697.77,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/11.jpg"),"Huawei P40 Pro",799.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/5.jpg"),"Apple Watch Series 5",399.00,"1000 Stock","Watch" ),
-            new Products(new ImageView("/Icons/12.jpg"),"Samsung Galaxy S20+",999.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/13.jpg"),"Samsung Galaxy Note 10",899.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/3.jpg"), "Samsung Galaxy Watch Active 2 ",245.00,"1000 Stock","Watch" ),
-            new Products(new ImageView("/Icons/14.jpg"),"Xiaomi Mi 10 Pro",260.23,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/15.jpg"),"Iphone XR",479.00,"1000 Stock","Phone" ),
-            new Products(new ImageView("/Icons/16.jpg"),"Iphone XS",519.00,"1000 Stock","Phone" )
-
-    );
+    ObservableList<Products> productsObservableList= FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Connection connection=Database.DBConn.setConnection();
+
+        try{
+            ResultSet resultSet=connection.createStatement().executeQuery("Select * from stock");
+            while (resultSet.next()){
+                productsObservableList.add(new Products(new ImageView("/Icons/"+resultSet.getInt("images")+".jpg") ,resultSet.getString("modeli"),resultSet.getDouble("cmimi"),resultSet.getInt("sasia"),resultSet.getString("lloji")));
+
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
 
         image.setCellValueFactory(new PropertyValueFactory<Products,ImageView>("Image"));
         name.setCellValueFactory(new PropertyValueFactory<Products,String>("Name"));
@@ -125,18 +111,26 @@ public class Stock implements Initializable {
         	
             try {            	
             	Products products = tableView.getSelectionModel().getSelectedItem();
-          	  
-          	    Connection connection=Database.DBConn.setConnection();  
-          	
-	            PreparedStatement Pstatement=connection.prepareStatement("insert into products (name,price,inventory,category,dateAndTime,warrantyDate) values(?,?,?,?,?,?)");
 
-	            Pstatement.setString(1,products.getName());
-	            Pstatement.setDouble(2,products.getPrice());
-	            Pstatement.setString(3,products.getInvertory());
+                String query = "SELECT * FROM faturat ORDER BY id DESC LIMIT 1;";
+                Statement statement=connection.createStatement();
+                ResultSet resultSet=statement.executeQuery(query);
+                int id=0;
+                if (resultSet.next()){
+                    id=resultSet.getInt("id")+1;
+                }
+
+          	
+	            PreparedStatement Pstatement=connection.prepareStatement("insert into products (id,name,price,category) values(?,?,?,?)");
+
+                Pstatement.setInt(1,id);
+	            Pstatement.setString(2,products.getName());
+	            Pstatement.setDouble(3,products.getPrice());
 	            Pstatement.setString(4,products.getCategory());
-	            Pstatement.setString(5,products.thedate().toString());
-	            Pstatement.setString(6,products.warrantyDate().toString());
 	            Pstatement.executeUpdate();
+
+
+
             }
 	           
              catch (SQLException e) {
@@ -160,7 +154,7 @@ public class Stock implements Initializable {
         	
 	         
         });
-    
+
 
     }
     
