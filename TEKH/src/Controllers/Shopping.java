@@ -91,7 +91,6 @@ public class Shopping implements Initializable {
     	Connection connection;
     	connection=Database.DBConn.setConnection();
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
 			  Statement st = connection.createStatement();
 		        String sql = ("SELECT * FROM products;");
 		        ResultSet rs = st.executeQuery(sql);
@@ -163,8 +162,7 @@ public class Shopping implements Initializable {
 	deleteRow.setOnMouseClicked(mouseEvent -> {
     	Products products = tableView.getSelectionModel().getSelectedItem();
     	try {
-    		Connection connection1=DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
-    		Statement st = connection1.createStatement();
+    		Statement st = connection.createStatement();
     		
 	        String sql = ("SELECT * FROM products;");
 	        ResultSet rs = st.executeQuery(sql);
@@ -176,7 +174,7 @@ public class Shopping implements Initializable {
 	        	if(str1.equals(products.getDateAndTime().toString()))
 	        	{
 	        		String query = "delete from products where dateAndTime= ?";
-		        	PreparedStatement preparedStmt = connection1.prepareStatement(query);
+		        	PreparedStatement preparedStmt = connection.prepareStatement(query);
 		        	preparedStmt.setString(1,str1);
 
 		    	    preparedStmt.execute();
@@ -211,8 +209,7 @@ public class Shopping implements Initializable {
      	
 		 Products products = tableView.getSelectionModel().getSelectedItem();
 	    	try {
-	    		Connection connection1=DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
-	    		Statement st = connection1.createStatement();
+	    		Statement st = connection.createStatement();
 	    		
 		        String sql = ("SELECT * FROM products;");
 		        ResultSet rs = st.executeQuery(sql);
