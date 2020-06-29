@@ -20,7 +20,7 @@ public class DBConn {
         System.out.println(changePw("qlmngdez","E.berisha1"));
 
 
-       // shto("Eron","Salihu","shites");
+        shto("Eron","Salihu","shites");
         //delete(1);
     }
     
@@ -90,6 +90,15 @@ public class DBConn {
             PreparedStatement preparedStatement=connection.prepareStatement(shto);
             preparedStatement.executeUpdate(shto);
             ResultSet resultSet=preparedStatement.getResultSet();
+            String query = "SELECT * FROM employees ORDER BY id DESC LIMIT 1;";
+            Statement stat=connection.createStatement();
+            ResultSet result=stat.executeQuery(query);
+            int id = 0;
+            if (result.next()){
+                id=result.getInt("id");
+            }
+            
+            
             if(c.equalsIgnoreCase("shites") ||c.equalsIgnoreCase("menaxher")){
                 String username=a+"."+b;
                 String checkusername="Select count(*) from employees where name='"+a+"' and surname='"+b+"'";
@@ -118,7 +127,7 @@ public class DBConn {
                     buffer.append((char) randomLimitedInt);
                 }
                 String passwordi = buffer.toString();
-                String shtouser="insert into users (username,password,roli) values ('"+user+"','"+passwordi+"','"+c+"')";
+                String shtouser="insert into users (username,password,roli,id) values ('"+user+"','"+passwordi+"','"+c+"','"+id+"')";
                 PreparedStatement prp=connection.prepareStatement(shtouser);
                 prp.executeUpdate(shtouser);
 
@@ -151,6 +160,13 @@ public class DBConn {
                     Statement statement=connection.createStatement();
                     ResultSet resultSet=statement.executeQuery(merri);
                     while (resultSet.next()){
+                        if (resultSet.getString("roli").equalsIgnoreCase("menaxher") || resultSet.getString("roli").equalsIgnoreCase("shites")){
+                            String delete="delete from users where id='"+a+"'";
+
+                            PreparedStatement stmt = connection.prepareStatement(delete);
+                            stmt.executeUpdate(delete);
+
+                        }
 
                         String emri=resultSet.getString("name");
                         String mbiemri=resultSet.getString("surname");
@@ -161,15 +177,13 @@ public class DBConn {
                                 modifiedDate+"')";
                         PreparedStatement preparedStatement=connection.prepareStatement(shtoEx);
                         preparedStatement.executeUpdate(shtoEx);
+                        String deleteE="delete from  employees where id='"+a+"'";
+                        PreparedStatement statementa=connection.prepareStatement(deleteE);
+                        statementa.executeUpdate(deleteE);
 
                     }
 
-                    String delete="delete from users where id='"+a+"'";
-                    String deleteE="delete from  employees where id='"+a+"'";
-                    PreparedStatement stmt = connection.prepareStatement(delete);
-                    stmt.executeUpdate(delete);
-                    PreparedStatement statementa=connection.prepareStatement(deleteE);
-                    statementa.executeUpdate(deleteE);
+
                 }
                 catch (Exception ex){
                     ex.printStackTrace();
