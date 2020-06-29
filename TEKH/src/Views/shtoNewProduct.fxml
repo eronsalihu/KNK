@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="370.0" prefWidth="305.0" styleClass="menu-pane" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ShtoNewProduct">
+    <children>
+        <TextField fx:id="image" alignment="CENTER" layoutX="58.0" layoutY="43.0" prefHeight="36.0" prefWidth="189.0" promptText="image" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+            <font>
+                <Font name="Monospaced Regular" size="14.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="sasia" alignment="CENTER" layoutX="58.0" layoutY="192.0" prefHeight="36.0" prefWidth="189.0" promptText="Sasia" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+            <font>
+                <Font name="Monospaced Regular" size="14.0" />
+            </font>
+        </TextField>
+        <Button fx:id="shtoBtn" layoutX="38.0" layoutY="308.0" mnemonicParsing="false" onAction="#shtoProdukt" prefHeight="33.0" prefWidth="231.0" style="-fx-background-radius: 10px; -fx-background-color: #374649;" styleClass="sign-in" stylesheets="@login.css" text="Shto" textFill="WHITE">
+            <font>
+                <Font name="Monospaced Regular" size="14.0" />
+            </font>
+        </Button>
+      <TextField fx:id="model" alignment="CENTER" layoutX="58.0" layoutY="141.0" prefHeight="36.0" prefWidth="189.0" promptText="modeli" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+         <font>
+            <Font name="Monospaced Regular" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cmimi" alignment="CENTER" layoutX="58.0" layoutY="243.0" prefHeight="36.0" prefWidth="189.0" promptText="Cmimi" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+         <font>
+            <Font name="Monospaced Regular" size="14.0" />
+         </font>
+      </TextField>
+      <ComboBox fx:id="combo" layoutX="61.0" layoutY="98.0" prefHeight="33.0" prefWidth="172.0" promptText="Kategoria" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css" />
+    </children>
+</AnchorPane>
