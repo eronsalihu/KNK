@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.deleteWorker">
+    <children>
+        <Pane layoutX="258.0" layoutY="-1.0" prefHeight="314.0" prefWidth="343.0" style="-fx-background-color: white;">
+            <children>
+                <ImageView fitHeight="52.0" fitWidth="54.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/icon.png" />
+                    </image>
+                    <effect>
+                        <ColorAdjust brightness="-0.34" contrast="0.31" hue="0.5" />
+                    </effect>
+                </ImageView>
+                <VBox layoutX="71.0" layoutY="60.0" prefHeight="242.0" prefWidth="201.0" spacing="25.0">
+                    <children>
+                        <TextField fx:id="ID" prefHeight="30.0" prefWidth="160.0" promptText="ID" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+                            <font>
+                                <Font name="Monospaced Regular" size="14.0" />
+                            </font>
+                        </TextField>
+                  <TextField fx:id="nameSurname" prefHeight="30.0" prefWidth="160.0" promptText="Name Surname" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="14.0" />
+                     </font>
+                  </TextField>
+
+                        <Button fx:id="deleteBtn" mnemonicParsing="false" onAction="#deleteUser" prefHeight="33.0" prefWidth="216.0" style="-fx-background-radius: 10px; -fx-background-color: #374649;" styleClass="sign-in" stylesheets="@login.css" text="Delete" textFill="WHITE">
+                            <font>
+                                <Font name="Monospaced Regular" size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+        <Pane prefHeight="314.0" prefWidth="251.0">
+            <children>
+                <ImageView fitHeight="314.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/tanner-van-dera-2wgFeX1qkLk-unsplash.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="51.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../Icons/output-onlinepngtools.png" />
+                    </image>
+                    <effect>
+                        <ColorAdjust brightness="-0.38" contrast="1.0" hue="0.31" saturation="-0.48" />
+                    </effect>
+                </ImageView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
