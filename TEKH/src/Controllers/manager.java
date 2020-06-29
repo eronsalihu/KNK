@@ -90,6 +90,8 @@ public class manager implements Initializable {
 
     @FXML
     private Button shtoPuntor;
+    @FXML
+    private Button produkti;
 
 
     @Override
@@ -156,12 +158,21 @@ public class manager implements Initializable {
                 ex.printStackTrace();
             }
         });
+        produkti.setOnMouseClicked(mouseEvent -> {
+            try
+            {
+                Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/products.fxml"));
+                rightPane.getChildren().add(stockPane);}
+            catch (Exception ex){
+                ex.printStackTrace();
+            }
+        });
 
 
         orders.setOnMouseClicked(mouseEvent -> {
         	Pane stockPane;
 			try {
-				stockPane = FXMLLoader.load(getClass().getResource("/Views/ShoppingCart.fxml"));
+				stockPane = FXMLLoader.load(getClass().getResource("/Views/OrderPane.fxml"));
 				rightPane.getChildren().add(stockPane); 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
