@@ -83,5 +83,6 @@ CREATE TABLE `products` (
   `price` double DEFAULT NULL,
   `inventory` varchar(30) DEFAULT NULL,
   `category` varchar(30) DEFAULT NULL,
-  `dateAndTime` datetime DEFAULT NULL
+  `dateAndTime` datetime DEFAULT NULL,
+  `warrantyDate` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
