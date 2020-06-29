@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Shopping">
+<Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Shopping">
    <children>
       <TextField fx:id="searchBar" layoutX="17.0" layoutY="62.0" prefHeight="25.0" prefWidth="627.0" promptText="Search Item" style="-fx-background-radius: 0.8em;" styleClass="sign-in" stylesheets="@intro.css">
          <font>
@@ -61,6 +61,17 @@
       <Text fx:id="textfield" fill="#2f9e61" layoutX="257.0" layoutY="111.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Weekend Sales -20%">
          <font>
             <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Button fx:id="garancioni" layoutX="357.0" layoutY="14.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="92.0" styleClass="sign-in" stylesheets="@login.css" text="Garancioni">
+         <font>
+            <Font name="Monospaced Regular" size="12.0" />
+         </font>
+      </Button>
+      <Text fx:id="warranty" layoutX="523.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="productText" fill="#23833b" layoutX="297.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products">
+         <font>
+            <Font size="17.0" />
          </font>
       </Text>
    </children>
