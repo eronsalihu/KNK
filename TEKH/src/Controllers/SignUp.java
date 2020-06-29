@@ -1,6 +1,9 @@
 package Controllers;
 
 import Database.DBConn;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,148 +18,91 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class SignUp implements Initializable {
 
     @FXML
-    public TextField firstname;
+    public TextField firstName;
 
     @FXML
-    public TextField lastname;
+    public TextField lastName;
 
     @FXML
-    public TextField username;
+    public ComboBox<String> combo;
 
     @FXML
-    public TextField email;
+    public Button shtoBtn;
 
-    @FXML
-    public PasswordField password;
+    ObservableList<String> list= FXCollections.observableArrayList("Menaxher","Shites","Teknik","Pastrues","Narrator");
 
-    @FXML
-    private Button signupBtn;
 
-    @FXML
-    private Label backToSingIn;
-
-    @FXML
-    private VBox vMenu;
-
-    @FXML
-    private ImageView menu;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+    combo.setItems(list);
 
     }
 
-
-
     @FXML
-    private void SignUp(ActionEvent event) {
-        if (firstname.getText().isEmpty() || lastname.getText().isEmpty() || username.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
+    private void SignUp(ActionEvent event) throws IOException {
+        String value=combo.getValue();
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() ||  value.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("Please fill up");
             alert.showAndWait();
         } else {
+            String emri=firstName.getText();
+            String mbiemri=lastName.getText();
+            Database.DBConn.shto(emri,mbiemri,value);
+            if (value.equalsIgnoreCase("shites") || value.equalsIgnoreCase("menaxher")){
+                Connection connection=Database.DBConn.setConnection();
+                int id = 0;
+                try
+                {
+                    String query = "SELECT * FROM employees ORDER BY id DESC LIMIT 1;";
+                    Statement statement=connection.createStatement();
+                    ResultSet resultSet=statement.executeQuery(query);
+                    if (resultSet.next()){
+                        id=resultSet.getInt("id");
+                    }
+                    String query1="Select * from users where id='"+id+"'";
+                    Statement stat=connection.createStatement();
+                    ResultSet rs=stat.executeQuery(query1);
+                    String username="";
+                    String password="";
 
+                    while (rs.next()){
+                        username=rs.getString("username");
+                        password=rs.getString("password");
+                    }
 
-            String query1 = "Insert into users values ('" + firstname.getText() + "','" + lastname.getText() +
-                    "','" + username.getText() + "','" + email.getText() + "','" + password.getText() + "')";
-            try {
+                    Alert confirm1=new Alert(Alert.AlertType.INFORMATION);
+                    confirm1.setContentText("Username i userit te ri eshte  "+username+" dhe passwordi "+ password);
+                    confirm1.showAndWait();
 
-                PreparedStatement st = DBConn.setConnection().prepareStatement("select * from users where username = ?");
-                st.setString(1, username.getText());
-                ResultSet r1 = st.executeQuery();
-                if (r1.next()) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Username Already exists");
-                    alert.showAndWait();
-
-                } else {
-                    Statement statement = DBConn.setConnection().createStatement();
-                    statement.executeUpdate(query1);
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Success");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You signed up!");
-                    alert.showAndWait();
-                    Parent singUp = FXMLLoader.load(getClass().getResource("/Views/SignIn.fxml"));
-                    Scene singUpScene = new Scene(singUp);
-
-                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    window.setResizable(false);
-                    window.setScene(singUpScene);
-                    window.show();
 
                 }
-
-
-            } catch (SQLException | IOException ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Database problem");
-                alert.setHeaderText(null);
-                alert.setContentText(ex.getMessage());
-                alert.showAndWait();
-                System.exit(0);
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
             }
-        }
-    }
-
-    @FXML
-    private void setBackToSingIn()  {
-        backToSingIn.setOnMouseClicked(mouseEvent -> {
-            Parent singUp = null;
-            try {
-                singUp = FXMLLoader.load(getClass().getResource("/Views/SignIn.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            Alert confirm=new Alert(Alert.AlertType.INFORMATION);
+            confirm.setContentText("Punetori ri u shtua");
+            confirm.showAndWait();
+            Parent singUp = FXMLLoader.load(getClass().getResource("/Views/SignUp.fxml"));
             Scene singUpScene = new Scene(singUp);
 
-            Stage window = (Stage)((Node)mouseEvent.getSource()).getScene().getWindow();
-
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setResizable(false);
             window.setScene(singUpScene);
-            window.show();
+            window.close();
 
-        });
-
-    }
-
-    public void menu() {
-        ImageView enIcon=new ImageView("/Icons/EN.png");
-        ImageView alIcon=new ImageView("/Icons/AL.png");
-
-        enIcon.setFitWidth(30);
-        enIcon.setFitHeight(30);
-        alIcon.setFitWidth(30);
-        alIcon.setFitHeight(30);
-
-        vMenu.getChildren().addAll(enIcon,alIcon);
-
-
-
-        menu.setOnMouseEntered(mouseEvent -> {
-            enIcon.setVisible(true);
-            alIcon.setVisible(true);
-        });
-
-        vMenu.setOnMouseExited(mouseEvent -> {
-            enIcon.setVisible(false);
-            alIcon.setVisible(false);
-        });
-
-
+        }
     }
 }
 
