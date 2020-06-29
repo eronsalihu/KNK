@@ -34,7 +34,7 @@ import java.util.ResourceBundle;
 
 public class Shopping implements Initializable {
 
-   @FXML
+    @FXML
     private TextField searchBar;
     
     @FXML
@@ -87,11 +87,10 @@ public class Shopping implements Initializable {
     	else {
 			productText.setVisible(true);
 		}
-	    
+    	
     	Connection connection;
-    	connection=Database.DBConn.setConnection();
 		try {
-
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
 			  Statement st = connection.createStatement();
 		        String sql = ("SELECT * FROM products;");
 		        ResultSet rs = st.executeQuery(sql);
@@ -180,15 +179,16 @@ public class Shopping implements Initializable {
 		        	preparedStmt.setString(1,str1);
 
 		    	    preparedStmt.execute();
-				
-			    Pane stockPane;
+		    	    
+		    	    Pane stockPane;
 					try {
 						stockPane = FXMLLoader.load(getClass().getResource("/Views/ShoppingCart.fxml"));
 						rightPane.getChildren().add(stockPane); 
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					}				
+					}
+		        	
 	        	}
 	        	
 	        }
@@ -205,7 +205,7 @@ public class Shopping implements Initializable {
 	    
 	      
     });
-	    
+	
 	 garancioni.setOnMouseClicked(mouseEvent -> {
      	
 		 Products products = tableView.getSelectionModel().getSelectedItem();
@@ -235,7 +235,7 @@ public class Shopping implements Initializable {
 	     	
 	    	
 	         
-     });	    
+     });
     
     }	    
 	
