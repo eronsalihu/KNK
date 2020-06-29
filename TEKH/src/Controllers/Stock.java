@@ -127,15 +127,16 @@ public class Stock implements Initializable {
             	Products products = tableView.getSelectionModel().getSelectedItem();
           	  
           	  
-          	 Connection connection=Database.DBConn.setConnection();
+          	 Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
 
-	            PreparedStatement Pstatement=connection.prepareStatement("insert into products (name,price,inventory,category,dateAndTime) values(?,?,?,?,?)");
+	            PreparedStatement Pstatement=connection.prepareStatement("insert into products (name,price,inventory,category,dateAndTime,warrantyDate) values(?,?,?,?,?,?)");
 
 	            Pstatement.setString(1,products.getName());
 	            Pstatement.setDouble(2,products.getPrice());
 	            Pstatement.setString(3,products.getInvertory());
 	            Pstatement.setString(4,products.getCategory());
 	            Pstatement.setString(5,products.thedate().toString());
+	            Pstatement.setString(6,products.warrantyDate().toString());
 	            Pstatement.executeUpdate();
             }
 	           
