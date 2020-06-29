@@ -238,5 +238,45 @@ public class DBConn {
         }
         return ndrrimi;
     }
+    public static void shtosasi(String produkti,int sasia){
+        Connection connection=setConnection();
+        try{
+            String query="Update stock set sasia='"+sasia+"' where modeli='"+produkti+"'";
+            PreparedStatement prp=connection.prepareStatement(query);
+            prp.executeUpdate(query);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public static void shtoNewProdukt(String image,String kategoria,String modeli,int Sasia,double cmimi){
+        Connection connection=setConnection();
+        try
+        {
+            String shtolog="insert into stock (lloji,modeli,sasia,cmimi,images) values ('"+kategoria+"','"+modeli+"','"+Sasia+"','"+cmimi+"','"+image+"')";
+            PreparedStatement prp=connection.prepareStatement(shtolog);
+            prp.executeUpdate(shtolog);
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public static void insertFature(int id,double cmimi){
+        Date koha=new Date();
+        String a=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(koha);
+        Connection connection=setConnection();
+        String personi=getLast();
+        try
+        {
+            String shtofat="insert into faturat (id,personi,koha,shuma) values ('"+id+"','"+personi+"','"+a+"','"+cmimi+"')";
+            PreparedStatement prp=connection.prepareStatement(shtofat);
+            prp.executeUpdate(shtofat);
+
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
 }
 
