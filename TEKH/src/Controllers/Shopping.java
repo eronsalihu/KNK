@@ -34,17 +34,26 @@ import java.util.ResourceBundle;
 
 public class Shopping implements Initializable {
 
-    @FXML
+   @FXML
     private TextField searchBar;
     
     @FXML
     private Text textfield;
+
+    @FXML
+    private Text productText;
+    
+    @FXML
+    private Text warranty;
     
     @FXML
     private Button goBack;
     
     @FXML
     private Button deleteRow;
+    
+    @FXML
+    private Button garancioni;
     
     @FXML
     private Pane rightPane;
@@ -71,6 +80,14 @@ public class Shopping implements Initializable {
     	else {
 			textfield.setVisible(false);
 		}
+    	if(isWeekend(LocalDate.now()))
+    	{
+    		productText.setVisible(false);
+    	}
+    	else {
+			productText.setVisible(true);
+		}
+	    
     	Connection connection;
     	connection=Database.DBConn.setConnection();
 		try {
