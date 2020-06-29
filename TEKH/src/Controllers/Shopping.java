@@ -89,6 +89,7 @@ public class Shopping implements Initializable {
 		}
     	
     	Connection connection;
+    	connection=Database.DBConn.setConnection();
 		try {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
 			  Statement st = connection.createStatement();
