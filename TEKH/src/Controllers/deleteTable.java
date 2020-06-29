@@ -1,10 +1,12 @@
 package Controllers;
 
+import java.sql.Date;
+
 public class deleteTable {
     String name,surname,dataFillimit,dataMbarimit;
     int id;
 
-    public deleteTable(int id,String name,String surname,String dataFillimit,String dataMbarimit) {
+    public deleteTable(int id, String name, String surname, String dataFillimit, String dataMbarimit) {
         this.id = id;
         this.name=name;
         this.surname=surname;
