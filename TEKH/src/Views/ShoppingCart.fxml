@@ -20,13 +20,12 @@
             <Font name="Monospaced Italic" size="12.0" />
          </font>
       </TextField>
-      <TableView fx:id="tableView" layoutX="18.0" layoutY="127.0" prefHeight="430.0" prefWidth="627.0">
+      <TableView fx:id="tableView" layoutX="18.0" layoutY="127.0" prefHeight="418.0" prefWidth="627.0">
          <columns>
-            <TableColumn fx:id="name" prefWidth="160.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
-            <TableColumn fx:id="price" minWidth="0.0" prefWidth="90.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
-            <TableColumn fx:id="invertory" minWidth="0.0" prefWidth="110.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Invertory" />
-            <TableColumn fx:id="categoryy" minWidth="0.0" prefWidth="110.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Category" />
-            <TableColumn fx:id="dateAndTime" prefWidth="156.0" style="-fx-font-weight: normal; -fx-font-family: monospace;" text="Date&amp;Time" />
+            <TableColumn fx:id="id" prefWidth="100.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="ID" />
+            <TableColumn fx:id="name" prefWidth="210.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Name" />
+            <TableColumn fx:id="price" minWidth="0.0" prefWidth="150.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Price" />
+            <TableColumn fx:id="categoryy" minWidth="0.0" prefWidth="150.0" style="-fx-font-weight: normal; -fx-font-family: monospaced;" text="Category" />
          </columns>
          <stylesheets>
             <URL value="@intro.css" />
@@ -63,16 +62,16 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Button fx:id="garancioni" layoutX="357.0" layoutY="14.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="92.0" styleClass="sign-in" stylesheets="@login.css" text="Warranty">
-         <font>
-            <Font name="Monospaced Regular" size="12.0" />
-         </font>
-      </Button>
       <Text fx:id="warranty" layoutX="523.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="productText" fill="#23833b" layoutX="297.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Products">
          <font>
             <Font size="17.0" />
          </font>
       </Text>
+      <Button fx:id="done" layoutX="543.0" layoutY="553.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" styleClass="sign-in" stylesheets="@login.css" text="Done">
+         <font>
+            <Font name="Monospaced Regular" size="12.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
