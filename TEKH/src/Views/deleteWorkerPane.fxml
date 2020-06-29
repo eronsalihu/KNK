@@ -52,7 +52,7 @@
                         <ColorAdjust brightness="-0.4" contrast="0.1" hue="-0.2" saturation="0.45" />
                     </effect>
                 </ImageView>
-                <Button fx:id="DeleteWorker" layoutX="543.0" layoutY="14.0" mnemonicParsing="false" text="Delete Worker" />
+                <Button fx:id="DeleteWorker" layoutX="543.0" layoutY="14.0" mnemonicParsing="false" styleClass="sign-in" stylesheets="@login.css" text="Delete Worker" />
             </children>
         </Pane>
     </children>
