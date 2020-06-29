@@ -205,6 +205,37 @@ public class Shopping implements Initializable {
 	    
 	      
     });
+	    
+	 garancioni.setOnMouseClicked(mouseEvent -> {
+     	
+		 Products products = tableView.getSelectionModel().getSelectedItem();
+	    	try {
+	    		Connection connection1=DriverManager.getConnection("jdbc:mysql://localhost:3307/tech","root","");
+	    		Statement st = connection1.createStatement();
+	    		
+		        String sql = ("SELECT * FROM products;");
+		        ResultSet rs = st.executeQuery(sql);
+		        for(int i=0;i<30;i++)
+		        {
+			        if(rs.next())
+			        {
+			        	String str1 = rs.getString("dateAndTime");
+			        	if(str1.equals(products.getDateAndTime().toString()))
+			        	{
+			        		String str2 = rs.getString("warrantyDate");
+				        	warranty.setText(str2);
+			        	}
+			        }
+		        }
+	    	}
+	    	
+	    	catch (Exception e) {
+				// TODO: handle exception
+			}
+	     	
+	    	
+	         
+     });	    
     
     }	    
 	
