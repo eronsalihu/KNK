@@ -136,7 +136,7 @@ public class Home implements Initializable {
         orders.setOnMouseClicked(mouseEvent -> {
         	Pane stockPane;
 			try {
-				stockPane = FXMLLoader.load(getClass().getResource("/Views/ShoppingCart.fxml"));
+				stockPane = FXMLLoader.load(getClass().getResource("/Views/OrderPane.fxml"));
 				rightPane.getChildren().add(stockPane); 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
