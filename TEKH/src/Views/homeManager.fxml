@@ -113,6 +113,18 @@
                                                 </ImageView>
                                             </graphic>
                                         </Button>
+                                        <Button fx:id="produkti" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="Products">
+                                            <font>
+                                                <Font name="Monospaced Regular" size="12.0" />
+                                            </font>
+                                            <graphic>
+                                                <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@../Icons/apple.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic>
+                                        </Button>
 
                                     </children>
                                 </VBox>
