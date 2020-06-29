@@ -63,7 +63,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Button fx:id="garancioni" layoutX="357.0" layoutY="14.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="92.0" styleClass="sign-in" stylesheets="@login.css" text="Garancioni">
+      <Button fx:id="garancioni" layoutX="357.0" layoutY="14.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="92.0" styleClass="sign-in" stylesheets="@login.css" text="Warranty">
          <font>
             <Font name="Monospaced Regular" size="12.0" />
          </font>
