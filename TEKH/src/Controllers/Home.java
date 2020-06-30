@@ -1,6 +1,7 @@
 package Controllers;
 
 import javafx.animation.*;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -203,19 +209,22 @@ ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             }
         });
         ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.P,
-                    KeyCombination.SHIFT_DOWN);
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.O,
+                    KeyCombination.CONTROL_DOWN,KeyCombination.SHIFT_DOWN);
             public void handle(KeyEvent ke) {
-
+                Parent singUp = null;
                 if (keyComb.match(ke)) {
-                    try
-                    {
-                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
-                        rightPane.getChildren().add(stockPane);
+                    try {
+                        singUp = FXMLLoader.load(getClass().getResource("/Views/SignIn.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                    catch (Exception ex){
-                        ex.printStackTrace();
-                    }
+                    Scene singUpScene = new Scene(singUp);
+
+                    Stage window = (Stage)((Node)ke.getSource()).getScene().getWindow();
+
+                    window.setScene(singUpScene);
+                    window.show();
                 }
             }
         });
