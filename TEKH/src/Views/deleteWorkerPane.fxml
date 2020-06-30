@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="deleteView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.deleteUser">
+<AnchorPane fx:id="deleteView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.deleteUser">
     <children>
         <Pane fx:id="rightPane" prefHeight="592.0" prefWidth="660.0" style="-fx-background-color: white;">
             <children>
@@ -52,7 +52,10 @@
                         <ColorAdjust brightness="-0.4" contrast="0.1" hue="-0.2" saturation="0.45" />
                     </effect>
                 </ImageView>
-                <Button fx:id="DeleteWorker" layoutX="543.0" layoutY="14.0" mnemonicParsing="false" styleClass="sign-in" stylesheets="@login.css" text="Delete Worker" />
+                <Button fx:id="DeleteWorker" layoutX="533.0" layoutY="14.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="120.0" style="-fx-background-radius: 20px;" styleClass="sign-in" stylesheets="@login.css" text="Delete Worker">
+               <font>
+                  <Font name="Monospaced Regular" size="12.0" />
+               </font></Button>
             </children>
         </Pane>
     </children>
