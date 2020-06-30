@@ -40,8 +40,10 @@ id int auto_increment primary key,
 lloji varchar (30),
 modeli varchar (30),
 sasia int,
-cmimi double
+cmimi double,
+images varchar(100)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 
 create table lastLogged(
@@ -64,8 +66,7 @@ select * from signedOut;
 create table mbrendafatures(
 id int,
 produkti varchar(30),
-cmimi double,
-foreign key(id) references faturat(id))ENGINE=InnoDB DEFAULT CHARSET=utf8;
+cmimi double)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 create table orders(
 name varchar(30),
@@ -79,10 +80,8 @@ aprovuar varchar(25)
 insert into orders values('fatura',3,'2020-03-20 23:19:18',82.1,18,82.1,'a');
 select * from orders;
 CREATE TABLE `products` (
+	id int,
   `name` varchar(40) DEFAULT NULL,
   `price` double DEFAULT NULL,
-  `inventory` varchar(30) DEFAULT NULL,
-  `category` varchar(30) DEFAULT NULL,
-  `dateAndTime` datetime DEFAULT NULL,
-  `warrantyDate` varchar(30) DEFAULT NULL
+  `category` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
