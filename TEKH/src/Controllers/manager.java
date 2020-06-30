@@ -1,6 +1,7 @@
 package Controllers;
 
 import javafx.animation.*;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -31,6 +37,8 @@ public class manager implements Initializable {
 
     @FXML
     private ImageView menu;
+    @FXML
+    private AnchorPane ankori;
 
     @FXML
     private Label language;
@@ -94,6 +102,7 @@ public class manager implements Initializable {
     private Button produkti;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         signOut.setOnMouseClicked(mouseEvent -> {
@@ -109,6 +118,162 @@ public class manager implements Initializable {
 
             window.setScene(singUpScene);
             window.show();
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.O,
+                    KeyCombination.CONTROL_DOWN,KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+                Parent singUp = null;
+                if (keyComb.match(ke)) {
+                    try {
+                        singUp = FXMLLoader.load(getClass().getResource("/Views/SignIn.fxml"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene singUpScene = new Scene(singUp);
+
+                    Stage window = (Stage)((Node)ke.getSource()).getScene().getWindow();
+
+                    window.setScene(singUpScene);
+                    window.show();
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.H,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/HomePane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.S,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/StockPane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.O,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/OrderPane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.F,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.P,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.D,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/deleteWorkerPane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.V,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/ViewWorkersPane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.N,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/products.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
         });
         vMenu1.setVisible(false);
 
@@ -165,6 +330,16 @@ public class manager implements Initializable {
                 rightPane.getChildren().add(stockPane);}
             catch (Exception ex){
                 ex.printStackTrace();
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.H,
+                    KeyCombination.CONTROL_DOWN);
+            public void handle(KeyEvent ke) {
+                if (keyComb.match(ke)) {
+                    Help help=new Help();
+                    help.help();
+                }
             }
         });
 
