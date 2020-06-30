@@ -1,6 +1,7 @@
 package Controllers;
 
 import javafx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class manager implements Initializable {
@@ -100,6 +102,8 @@ public class manager implements Initializable {
     private Button shtoPuntor;
     @FXML
     private Button produkti;
+    private ResourceBundle resourceBundle;
+    private Locale locale;
 
 
 
@@ -397,6 +401,33 @@ public class manager implements Initializable {
         });
 
     }
+    @FXML
+    private void btnEn(ActionEvent event){
+        loadLang("en");
+    }
+    @FXML
+    private void btnAl(ActionEvent event){
+        loadLang("al");
+    }
+    private void loadLang(String lang){
+        locale=new Locale(lang);
+       resourceBundle=ResourceBundle.getBundle("Translates.Translate",locale);
+       home.setText(resourceBundle.getString("home"));
+       fshipuntor.setText(resourceBundle.getString("fshi"));
+       stock.setText(resourceBundle.getString("stoku"));
+        orders.setText(resourceBundle.getString("porosi"));
+        payment.setText(resourceBundle.getString("pagesat"));
+        signOut.setText(resourceBundle.getString("dil"));
+        changePassword.setText(resourceBundle.getString("ndrro"));
+        helpBtn.setText(resourceBundle.getString("help"));
+        shtoPuntor.setText(resourceBundle.getString("shto"));
+        produkti.setText(resourceBundle.getString("produkt"));
+        accLabel.setText(resourceBundle.getString("acc"));
+        email.setText(resourceBundle.getString("email"));
+        language.setText(resourceBundle.getString("lang"));
+
+    }
+
 
 
 }
