@@ -65,6 +65,9 @@ public class Home implements Initializable {
 
     @FXML
     private Button payment;
+	
+    @FXML
+    private AnchorPane ankori;
 
 
     @FXML
@@ -119,6 +122,102 @@ public class Home implements Initializable {
             stage.setScene(new Scene(changePwd));
             stage.show();
 
+        });
+	
+ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.H,
+                    KeyCombination.CONTROL_DOWN);
+            public void handle(KeyEvent ke) {
+                if (keyComb.match(ke)) {
+                Help help=new Help();
+                help.help();
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.H,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/HomePane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.S,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/StockPane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.O,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/OrderPane.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.F,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
+        });
+        ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            final KeyCombination keyComb = new KeyCodeCombination(KeyCode.P,
+                    KeyCombination.SHIFT_DOWN);
+            public void handle(KeyEvent ke) {
+
+                if (keyComb.match(ke)) {
+                    try
+                    {
+                        Pane stockPane=FXMLLoader.load(getClass().getResource("/Views/Faturat.fxml"));
+                        rightPane.getChildren().add(stockPane);
+                    }
+                    catch (Exception ex){
+                        ex.printStackTrace();
+                    }
+                }
+            }
         });
 
         stock.setOnMouseClicked(mouseEvent -> {
