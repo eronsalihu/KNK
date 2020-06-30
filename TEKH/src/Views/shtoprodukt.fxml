@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="370.0" prefWidth="305.0" styleClass="menu-pane" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ShtoProdukt">
+<AnchorPane prefHeight="370.0" prefWidth="305.0" style="-fx-background-radius: 10px;" styleClass="menu-pane" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ShtoProdukt">
    <children>
-      <TextField fx:id="produkti" alignment="CENTER" layoutX="58.0" layoutY="131.0" prefHeight="36.0" prefWidth="189.0" promptText="Produkti" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+      <TextField fx:id="produkti" alignment="CENTER" layoutX="58.0" layoutY="131.0" prefHeight="36.0" prefWidth="189.0" promptText="Product" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
          <font>
             <Font name="Monospaced Regular" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="sasia" alignment="CENTER" layoutX="58.0" layoutY="185.0" prefHeight="36.0" prefWidth="189.0" promptText="Sasia" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
+      <TextField fx:id="sasia" alignment="CENTER" layoutX="58.0" layoutY="185.0" prefHeight="36.0" prefWidth="189.0" promptText="Quantity" style="-fx-background-radius: 10px;" styleClass="sign-in" stylesheets="@login.css">
          <font>
             <Font name="Monospaced Regular" size="14.0" />
          </font>
       </TextField>
-      <Button fx:id="shtoBtn" layoutX="52.0" layoutY="286.0" mnemonicParsing="false" onAction="#ndreqi" prefHeight="33.0" prefWidth="216.0" style="-fx-background-radius: 10px; -fx-background-color: #374649;" styleClass="sign-in" stylesheets="@login.css" text="Shto" textFill="WHITE">
+      <Button fx:id="shtoBtn" layoutX="52.0" layoutY="286.0" mnemonicParsing="false" onAction="#ndreqi" prefHeight="33.0" prefWidth="216.0" style="-fx-background-radius: 10px; -fx-background-color: #374649;" styleClass="sign-in" stylesheets="@login.css" text="Add" textFill="WHITE">
          <font>
             <Font name="Monospaced Regular" size="14.0" />
          </font>
