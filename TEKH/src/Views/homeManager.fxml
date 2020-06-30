@@ -135,30 +135,30 @@
                                                 <Font name="Monospaced Regular" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label fx:id="alBtn" prefHeight="38.0" prefWidth="140.0" text="Albanian">
+                                        <Button fx:id="alB" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnAl" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="Albanian">
                                             <font>
-                                                <Font name="Monospaced Regular" size="16.0" />
+                                                <Font name="Monospaced Regular" size="12.0" />
                                             </font>
                                             <graphic>
-                                                <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
                                                         <Image url="@../Icons/AL.png" />
                                                     </image>
                                                 </ImageView>
                                             </graphic>
-                                        </Label>
-                                        <Label fx:id="enBtn" prefHeight="38.0" prefWidth="140.0" text="English">
+                                        </Button>
+                                        <Button fx:id="eng" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#btnEn" prefHeight="30.0" prefWidth="160.0" styleClass="sign-in" stylesheets="@intro.css" text="English">
                                             <font>
-                                                <Font name="Monospaced Regular" size="16.0" />
+                                                <Font name="Monospaced Regular" size="12.0" />
                                             </font>
                                             <graphic>
-                                                <ImageView fitHeight="29.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="22.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
                                                         <Image url="@../Icons/EN.png" />
                                                     </image>
                                                 </ImageView>
                                             </graphic>
-                                        </Label>
+                                        </Button>
                                         <Label fx:id="accLabel" prefHeight="38.0" prefWidth="105.0" text="Account">
                                             <font>
                                                 <Font name="Monospaced Regular" size="14.0" />
