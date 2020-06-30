@@ -1,6 +1,7 @@
 package Controllers;
 
 import javafx.animation.*;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Home implements Initializable {
@@ -93,6 +95,8 @@ public class Home implements Initializable {
 
     @FXML
     private VBox vMenu1;
+    private Locale locale;
+    private ResourceBundle resourceBundle;
 
 
     @Override
@@ -293,6 +297,30 @@ ankori.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
        vMenu.setOnMouseExited(mouseEvent -> {
           vMenu1.setVisible(false);
         });
+
+    }
+    @FXML
+    private void btnEn(ActionEvent event){
+        loadLang("en");
+    }
+    @FXML
+    private void btnAl(ActionEvent event){
+        loadLang("al");
+    }
+    private void loadLang(String lang){
+        locale=new Locale(lang);
+        resourceBundle=ResourceBundle.getBundle("Translates.Translate",locale);
+        home.setText(resourceBundle.getString("home"));
+        stock.setText(resourceBundle.getString("stoku"));
+        orders.setText(resourceBundle.getString("porosi"));
+        payment.setText(resourceBundle.getString("pagesat"));
+        signOut.setText(resourceBundle.getString("dil"));
+        changePassword.setText(resourceBundle.getString("ndrro"));
+        helpBtn.setText(resourceBundle.getString("help"));
+        accLabel.setText(resourceBundle.getString("acc"));
+        email.setText(resourceBundle.getString("email"));
+        language.setText(resourceBundle.getString("lang"));
+
 
     }
 
